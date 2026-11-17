@@ -1,11 +1,8 @@
 import json
 import os
-import re
 import requests
-from bs4 import BeautifulSoup
 from datetime import datetime
 
-# Cache de géocodage en mémoire pour éviter de refaire 2 fois la même requête ville
 GEO_CACHE = {}
 
 def get_lat_lng(city_query):
@@ -30,44 +27,44 @@ def get_lat_lng(city_query):
     return None, None
 
 def load_active_rally_traces(today_str):
-    """Charge les rallyes avec tracés détaillés dont la date n'est pas encore passée."""
+    """Charge les rallyes avec tracés détaillés dont la date n'est pas passée."""
     if not os.path.exists('rallyes_traces.json'):
         return []
     try:
         with open('rallyes_traces.json', 'r', encoding='utf-8') as f:
             traces = json.load(f)
         active_traces = [ev for ev in traces if ev.get("date", "") >= today_str]
-        if len(active_traces) != len(traces):
-            with open('rallyes_traces.json', 'w', encoding='utf-8') as f:
-                json.dump(active_traces, f, ensure_ascii=False, indent=4)
         return active_traces
     except Exception as e:
         print(f"Erreur lecture rallyes_traces.json : {e}")
         return []
 
 def fetch_opendatasoft_events(today_str, seen_titles):
-    """Source 1 : Base publique OpenDataSoft élargie."""
+    """Récupère un large volume d'événements automobiles et de collection en France."""
     events = []
+    
+    # Mots-clés larges mais ciblés pour maximiser les résultats
     keywords = [
-        "voitures anciennes", "véhicules anciens", "rassemblement auto",
-        "sport auto", "bourse auto", "rallye", "course de côte",
-        "trackday", "youngtimers", "rétromobile", "cars and coffee",
-        "véhicules de collection", "exposition auto", "slalom"
+        "voiture", "automobile", "véhicule ancien", "rassemblement", "bourse auto", 
+        "rallye", "course de côte", "trackday", "youngtimers", "rétro", 
+        "collection", "moto ancienne", "salon auto", "concentration"
     ]
 
+    # Mots-clés pour valider l'univers mécanique/auto
     must_have = [
         "voiture", "automobile", "véhicule", "youngtimer", "ancienne",
         "sportive", "rallye", "pilote", "circuit", "ffsa", "rétro",
-        "mécanique", "collection", "gti", "porsche", "alpine", "ferrari"
+        "mécanique", "collection", "gti", "porsche", "alpine", "ferrari",
+        "salon", "bourse", "rassemblement", "concentration", "expo"
     ]
 
+    # Exclusion stricte des faux positifs (intérim, emploi, rando pédestre, etc.)
     blacklist = [
-        "entreprise", "entreprises", "industrie", "industriel", "uimm", "randstad",
-        "intérim", "recrutement", "emploi", "métiers", "mission locale", "france travail",
-        "étudiant", "iut", "lycée", "école", "stage", "alternance", "formation",
-        "rando", "randonnée", "pédestre", "marche", "running", "trail", "vélo", "vtt",
-        "célibataire", "bovine", "carcasse", "circuit court", "santé", "photo",
-        "spectacle", "webinaire", "atelier", "afterwork", "benchmarking", "supply chain"
+        "entreprise", "industrie", "uimm", "randstad", "intérim", "recrutement", 
+        "emploi", "métiers", "mission locale", "france travail", "étudiant", "iut", 
+        "lycée", "école", "stage", "alternance", "formation", "rando", "randonnée", 
+        "pédestre", "marche", "running", "trail", "vélo", "vtt", "célibataire", 
+        "bovine", "carcasse", "circuit court", "santé", "webinaire", "atelier", "afterwork"
     ]
 
     for kw in keywords:
@@ -86,8 +83,10 @@ def fetch_opendatasoft_events(today_str, seen_titles):
                 desc = (item.get("description_fr") or "").strip()
                 full_text = f"{title} {desc}".lower()
 
+                # Si un mot interdit est présent, on ignore
                 if any(bad in full_text for bad in blacklist):
                     continue
+                # Si aucun mot automobile n'est présent, on ignore
                 if not any(good in full_text for good in must_have):
                     continue
 
@@ -131,80 +130,7 @@ def fetch_opendatasoft_events(today_str, seen_titles):
                     "stages": []
                 })
         except Exception as e:
-            print(f"Erreur OpenDataSoft sur {kw} : {e}")
-
-    return events
-
-def fetch_newsdancienne_events(today_str, seen_titles):
-    """Source 2 : Scraping de l'agenda spécialisé News d'Anciennes (rassos, bourses, rallyes historiques)."""
-    events = []
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-    
-    # On parcourt les 4 premières pages de l'agenda à venir
-    for page in range(1, 5):
-        url = f"https://newsdancienne.com/agenda/liste/?tribe-bar-date={today_str}&paged={page}"
-        try:
-            res = requests.get(url, headers=headers, timeout=12)
-            if res.status_code != 200:
-                break
-            
-            soup = BeautifulSoup(res.text, 'html.parser')
-            articles = soup.find_all('article')
-            if not articles:
-                break
-
-            for art in articles:
-                title_tag = art.find(['h2', 'h3'])
-                if not title_tag:
-                    continue
-                title = title_tag.get_text(strip=True)
-                if not title or title.lower() in seen_titles:
-                    continue
-
-                link_tag = title_tag.find('a')
-                ev_url = link_tag['href'] if link_tag and link_tag.has_attr('href') else url
-
-                # Extraction de la date (balise time)
-                time_tag = art.find('time')
-                date_str = time_tag['datetime'][:10] if time_tag and time_tag.has_attr('datetime') else today_str
-
-                # Extraction du lieu / code postal dans le texte de l'article
-                text_block = art.get_text(" ", strip=True)
-                # Recherche d'un code postal français (5 chiffres) suivi du nom de la ville
-                match_cp = re.search(r'\b(\d{5})\s+([A-ZÀ-Ÿa-zà-ÿ\-\'\s]{2,30})', text_block)
-                if match_cp:
-                    postal = match_cp.group(1)
-                    city_raw = match_cp.group(2).split(',')[0].strip()
-                    lat, lng = get_lat_lng(f"{postal} {city_raw}")
-                    city_label = f"{city_raw} ({postal[:2]})"
-                else:
-                    continue
-
-                if not lat or not lng:
-                    continue
-
-                t_lower = title.lower()
-                if "rallye" in t_lower or "montée" in t_lower:
-                    cat = "rallye"
-                elif "circuit" in t_lower or "piste" in t_lower:
-                    cat = "circuit"
-                else:
-                    cat = "rasso"
-
-                seen_titles.add(title.lower())
-                events.append({
-                    "title": title,
-                    "category": cat,
-                    "date": date_str,
-                    "city": city_label,
-                    "lat": float(lat),
-                    "lng": float(lng),
-                    "description": "Événement recensé via l'agenda spécialisé News d'Anciennes.",
-                    "url": ev_url,
-                    "stages": []
-                })
-        except Exception as e:
-            print(f"Erreur scraping page {page} : {e}")
+            print(f"Erreur sur {kw} : {e}")
 
     return events
 
@@ -216,19 +142,15 @@ active_rallies = load_active_rally_traces(today)
 for r in active_rallies:
     seen.add(r["title"].lower())
 
-# 2. Événements spécialisés (News d'Anciennes)
-specialized_events = fetch_newsdancienne_events(today, seen)
-
-# 3. Événements publics (OpenDataSoft)
+# 2. Récupération large via l'API publique
 public_events = fetch_opendatasoft_events(today, seen)
 
-# Fusion et attribution d'ID propres
-all_combined = active_rallies + specialized_events + public_events
+# Fusion
+all_combined = active_rallies + public_events
 for idx, ev in enumerate(all_combined, start=1):
-    if "id" not in ev:
-        ev["id"] = idx
+    ev["id"] = idx
 
 with open('events.json', 'w', encoding='utf-8') as f:
     json.dump(all_combined, f, ensure_ascii=False, indent=4)
 
-print(f"Bilan : {len(active_rallies)} tracés rallye + {len(specialized_events)} spécialisés + {len(public_events)} publics = {len(all_combined)} événements !")
+print(f"Bilan : {len(active_rallies)} tracés rallye + {len(public_events)} événements publics = {len(all_combined)} événements au total !")
