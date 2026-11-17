@@ -3,6 +3,9 @@ name: Mettre à jour les événements
 on:
   schedule:
     - cron: '0 3 * * *'
+  push:
+    paths:
+      - 'rallye_traces.json'
   workflow_dispatch:
 
 jobs:
