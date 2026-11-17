@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoEvents Radar - Événements & Spéciales Rallye</title>
-    <!-- Leaflet CSS (Carte gratuite OpenStreetMap) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body, html { height: 100%; margin: 0; font-family: system-ui, -apple-system, sans-serif; }
@@ -18,7 +16,6 @@
 </head>
 <body class="bg-slate-900 text-slate-100 flex flex-col h-screen overflow-hidden">
 
-    <!-- Barre supérieure -->
     <header class="bg-slate-950 border-b border-slate-800 px-4 py-3 flex items-center justify-between z-20 shadow-lg">
         <div class="flex items-center gap-3">
             <div class="bg-red-600 p-2 rounded-lg font-black text-white tracking-wider text-sm">AE</div>
@@ -37,12 +34,8 @@
         </div>
     </header>
 
-    <!-- Conteneur principal -->
     <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
-        
-        <!-- Panneau latéral (Filtres + Liste) -->
         <aside class="w-full md:w-96 bg-slate-900 border-r border-slate-800 flex flex-col z-10 h-1/2 md:h-full">
-            <!-- Filtres -->
             <div class="p-4 border-b border-slate-800 space-y-3 bg-slate-900/95">
                 <div>
                     <div class="flex justify-between text-xs text-slate-400 mb-1">
@@ -61,17 +54,12 @@
                 </div>
             </div>
 
-            <!-- Liste des événements -->
-            <div id="events-list" class="flex-1 overflow-y-auto p-3 space-y-2.5 custom-scrollbar">
-                <!-- Rempli dynamiquement par JS -->
-            </div>
+            <div id="events-list" class="flex-1 overflow-y-auto p-3 space-y-2.5 custom-scrollbar"></div>
         </aside>
 
-        <!-- Carte Interactive -->
         <main class="flex-1 relative h-1/2 md:h-full">
             <div id="map"></div>
 
-            <!-- Tiroir de détails (spécialement conçu pour les rallyes & ES) -->
             <div id="detail-drawer" class="hidden absolute bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-slate-950/95 backdrop-blur border border-slate-700 rounded-xl p-4 shadow-2xl z-[1000] max-h-[80%] overflow-y-auto custom-scrollbar">
                 <div class="flex justify-between items-start mb-2">
                     <span id="detail-badge" class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-red-600 text-white">RALLYE</span>
@@ -81,7 +69,6 @@
                 <p id="detail-meta" class="text-xs text-slate-400 mt-1 mb-3"></p>
                 <p id="detail-desc" class="text-sm text-slate-300 mb-4"></p>
                 
-                <!-- Section Spéciales (ES) -->
                 <div id="rally-stages-container" class="hidden border-t border-slate-800 pt-3">
                     <h3 class="text-xs font-bold uppercase tracking-wider text-red-400 mb-2 flex items-center justify-between">
                         <span>⏱️ Programme des Spéciales (ES)</span>
@@ -100,7 +87,6 @@
         </main>
     </div>
 
-    <!-- Modal d'aide pour le fichier events.json -->
     <div id="json-modal" class="hidden fixed inset-0 bg-black/75 z-[2000] flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-700 rounded-xl max-w-lg w-full p-5 space-y-4">
             <div class="flex justify-between items-center">
@@ -108,7 +94,7 @@
                 <button onclick="toggleModal('json-modal')" class="text-slate-400 hover:text-white">✕</button>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">
-                Cette application cherche automatiquement un fichier nommé <strong>events.json</strong> à la racine de ton dépôt GitHub. Tant qu'il n'existe pas, elle affiche les données de test intégrées.
+                Cette application lit automatiquement le fichier <strong>events.json</strong> présent à la racine de ton dépôt GitHub.
             </p>
             <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-[11px] font-mono text-emerald-400 overflow-x-auto">
                 Statut source : <span id="data-source-status">Données de démonstration intégrées</span>
@@ -117,10 +103,8 @@
         </div>
     </div>
 
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // --- 1. DONNÉES DE SECOURS (Utilisées tant que events.json n'est pas créé) ---
         const FALLBACK_EVENTS = [
             {
                 id: 1,
@@ -176,8 +160,7 @@
             }
         ];
 
-        // --- 2. INITIALISATION CARTE & VARIABLES ---
-        let userLat = 45.9367; // Rochefort par défaut
+        let userLat = 45.9367;
         let userLng = -0.9617;
         let allEvents = [];
         let activeCategory = 'all';
@@ -198,7 +181,6 @@
             radius: 7, fillColor: "#3b82f6", color: "#fff", weight: 2, fillOpacity: 1
         }).addTo(map).bindPopup("Votre position");
 
-        // --- 3. CHARGEMENT DES DONNÉES (JSON EXTERNE OU SECOURS) ---
         async function loadEvents() {
             try {
                 const response = await fetch('./events.json?t=' + Date.now());
@@ -211,7 +193,6 @@
             renderApp();
         }
 
-        // --- 4. GÉOLOCALISATION & CALCUL DISTANCE ---
         function locateUser() {
             if (!navigator.geolocation) return alert("Géolocalisation non supportée.");
             document.getElementById('location-status').textContent = "Recherche GPS en cours...";
@@ -237,7 +218,6 @@
             return Math.round(R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
         }
 
-        // --- 5. AFFICHAGE & INTERACTIONS ---
         function getCatColor(cat) {
             const colors = { rallye: '#ef4444', rasso: '#3b82f6', circuit: '#10b981', cote: '#f59e0b' };
             return colors[cat] || '#a855f7';
@@ -259,13 +239,11 @@
             }
 
             filtered.forEach(ev => {
-                // Marqueur carte
                 const marker = L.circleMarker([ev.lat, ev.lng], {
                     radius: 8, fillColor: getCatColor(ev.category), color: "#0f172a", weight: 2, fillOpacity: 0.9
                 }).addTo(markersLayer);
                 marker.on('click', () => openEventDetail(ev));
 
-                // Carte dans la liste
                 const card = document.createElement('div');
                 card.className = "bg-slate-800/60 hover:bg-slate-800 border border-slate-700/70 rounded-lg p-3 cursor-pointer transition";
                 card.onclick = () => {
@@ -306,7 +284,7 @@
             if (ev.stages && ev.stages.length > 0) {
                 stagesContainer.classList.remove('hidden');
                 let totalKm = 0;
-                ev.stages.forEach((st, idx) => {
+                ev.stages.forEach((st) => {
                     totalKm += parseFloat(st.km) || 0;
                     const div = document.createElement('div');
                     div.className = "bg-slate-900 border border-slate-800 p-2.5 rounded-lg text-xs space-y-1";
@@ -344,7 +322,6 @@
             document.getElementById(id).classList.toggle('hidden');
         }
 
-        // Écouteurs d'événements UI
         document.getElementById('radius-slider').addEventListener('input', (e) => {
             maxRadius = parseInt(e.target.value);
             document.getElementById('radius-val').textContent = maxRadius;
