@@ -53,7 +53,7 @@
                     <button data-cat="cote" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs px-2.5 py-1.5 rounded-md">Côte/Slalom</button>
                 </div>
 
-                <button onclick="applyFilters()" class="w-full bg-red-600 hover:bg-red-500 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-md">
+                <button id="apply-btn" onclick="applyFilters()" class="w-full bg-red-600 hover:bg-red-500 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-md">
                     Appliquer les filtres
                 </button>
             </div>
@@ -78,7 +78,7 @@
                         <h3 class="text-xs font-bold uppercase tracking-wider text-red-400">Spéciales & Zones Public</h3>
                         <span id="total-km" class="text-xs text-slate-400"></span>
                     </div>
-                    <div class="flex items-center gap-3 text-[11px] text-slate-400 mb-2 bg-slate-900 p-2 rounded">
+                    <div id="stages-legend" class="hidden items-center gap-3 text-[11px] text-slate-400 mb-2 bg-slate-900 p-2 rounded">
                         <span class="flex items-center gap-1"><span class="w-3 h-1 bg-red-500 inline-block"></span> Tracé ES</span>
                         <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span> Zone Spectateurs</span>
                     </div>
@@ -230,60 +230,71 @@
 
             const stagesContainer = document.getElementById('rally-stages-container');
             const stagesList = document.getElementById('stages-list');
+            const stagesLegend = document.getElementById('stages-legend');
             stagesList.innerHTML = '';
 
-            if (ev.stages && ev.stages.length > 0) {
+            if (ev.category === 'rallye') {
                 stagesContainer.classList.remove('hidden');
-                let totalKm = 0;
-                let allCoords = [];
+                if (ev.stages && ev.stages.length > 0) {
+                    stagesLegend.classList.remove('hidden');
+                    stagesLegend.classList.add('flex');
+                    let totalKm = 0;
+                    let allCoords = [];
 
-                ev.stages.forEach((st) => {
-                    totalKm += parseFloat(st.km) || 0;
+                    ev.stages.forEach((st) => {
+                        totalKm += parseFloat(st.km) || 0;
 
-                    // Tracé automatique de la spéciale sur la carte
-                    if (st.path && st.path.length > 1) {
-                        allCoords.push(...st.path);
-                        const polyline = L.polyline(st.path, { color: '#ef4444', weight: 5, opacity: 0.9 }).addTo(stageLayer);
-                        polyline.bindPopup(`<b>${st.name}</b><br>Passages : ${st.time}`);
+                        if (st.path && st.path.length > 1) {
+                            allCoords.push(...st.path);
+                            const polyline = L.polyline(st.path, { color: '#ef4444', weight: 5, opacity: 0.9 }).addTo(stageLayer);
+                            polyline.bindPopup(`<b>${st.name}</b><br>Passages : ${st.time}`);
 
-                        // Marqueur Départ (Vert) et Arrivée (Damier/Noir)
-                        L.circleMarker(st.path[0], { radius: 6, fillColor: '#10b981', color: '#fff', weight: 2, fillOpacity: 1 })
-                            .addTo(stageLayer).bindPopup(`Départ ${st.name}`);
-                        L.circleMarker(st.path[st.path.length - 1], { radius: 6, fillColor: '#0f172a', color: '#fff', weight: 2, fillOpacity: 1 })
-                            .addTo(stageLayer).bindPopup(`Arrivée ${st.name}`);
+                            L.circleMarker(st.path[0], { radius: 6, fillColor: '#10b981', color: '#fff', weight: 2, fillOpacity: 1 })
+                                .addTo(stageLayer).bindPopup(`Départ ${st.name}`);
+                            L.circleMarker(st.path[st.path.length - 1], { radius: 6, fillColor: '#0f172a', color: '#fff', weight: 2, fillOpacity: 1 })
+                                .addTo(stageLayer).bindPopup(`Arrivée ${st.name}`);
+                        }
+
+                        let zonesHtml = '';
+                        if (st.spectator_zones && st.spectator_zones.length > 0) {
+                            st.spectator_zones.forEach(zone => {
+                                allCoords.push(zone.coords);
+                                L.circleMarker(zone.coords, { radius: 8, fillColor: '#facc15', color: '#000', weight: 2, fillOpacity: 1 })
+                                    .addTo(stageLayer)
+                                    .bindPopup(`<b>${zone.name}</b><br>Spéciale : ${st.name}<br>Horaires : ${st.time}`);
+                                zonesHtml += `<div class="text-amber-400 text-[11px] mt-1">• ${zone.name}</div>`;
+                            });
+                        }
+
+                        const div = document.createElement('div');
+                        div.className = "bg-slate-900 border border-slate-800 p-2.5 rounded-lg text-xs space-y-1";
+                        div.innerHTML = `
+                            <div class="flex justify-between font-bold text-white">
+                                <span>${st.name}</span>
+                                <span class="text-red-400">${st.km}</span>
+                            </div>
+                            <div class="text-slate-400 text-[11px]">Passages : ${st.time}</div>
+                            ${zonesHtml}
+                            ${st.path ? `<button onclick='zoomToStage(${JSON.stringify(st.path)})' class="mt-1.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-200 px-2 py-1 rounded">Centrer sur cette spéciale</button>` : ''}
+                        `;
+                        stagesList.appendChild(div);
+                    });
+
+                    document.getElementById('total-km').textContent = totalKm.toFixed(1) + " km chrono";
+                    if (allCoords.length > 0) {
+                        map.fitBounds(L.latLngBounds(allCoords), { padding: [50, 50] });
                     }
-
-                    // Affichage automatique des zones spectateurs (Points Jaunes)
-                    let zonesHtml = '';
-                    if (st.spectator_zones && st.spectator_zones.length > 0) {
-                        st.spectator_zones.forEach(zone => {
-                            allCoords.push(zone.coords);
-                            L.circleMarker(zone.coords, { radius: 8, fillColor: '#facc15', color: '#000', weight: 2, fillOpacity: 1 })
-                                .addTo(stageLayer)
-                                .bindPopup(`<b>${zone.name}</b><br>Spéciale : ${st.name}<br>Horaires : ${st.time}`);
-                            zonesHtml += `<div class="text-amber-400 text-[11px] mt-1">• ${zone.name}</div>`;
-                        });
-                    }
-
-                    const div = document.createElement('div');
-                    div.className = "bg-slate-900 border border-slate-800 p-2.5 rounded-lg text-xs space-y-1";
-                    div.innerHTML = `
-                        <div class="flex justify-between font-bold text-white">
-                            <span>${st.name}</span>
-                            <span class="text-red-400">${st.km}</span>
+                } else {
+                    stagesLegend.classList.add('hidden');
+                    stagesLegend.classList.remove('flex');
+                    stagesList.innerHTML = `
+                        <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg text-xs text-slate-400 space-y-1">
+                            <p class="font-medium text-amber-400">⏳ Tracés en cours de validation</p>
+                            <p>Les cartes des spéciales et les zones spectateurs seront ajoutées ici quelques jours avant le départ de l'épreuve.</p>
                         </div>
-                        <div class="text-slate-400 text-[11px]">Passages : ${st.time}</div>
-                        ${zonesHtml}
-                        ${st.path ? `<button onclick='zoomToStage(${JSON.stringify(st.path)})' class="mt-1.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-200 px-2 py-1 rounded">Centrer sur cette spéciale</button>` : ''}
                     `;
-                    stagesList.appendChild(div);
-                });
-
-                document.getElementById('total-km').textContent = totalKm.toFixed(1) + " km chrono";
-
-                // Zoom automatique pour englober toutes les spéciales et zones public du rallye
-                if (allCoords.length > 0) {
-                    map.fitBounds(L.latLngBounds(allCoords), { padding: [50, 50] });
+                    document.getElementById('total-km').textContent = "À venir";
+                    map.setView([ev.lat, ev.lng], 12);
                 }
             } else {
                 stagesContainer.classList.add('hidden');
@@ -320,9 +331,22 @@
             });
         });
 
+        // Fonction d'application avec retour visuel immédiat (bouton vert clignotant)
         function applyFilters() {
             maxRadius = parseInt(document.getElementById('radius-slider').value);
             renderApp();
+
+            const btn = document.getElementById('apply-btn');
+            const originalText = btn.textContent;
+            btn.textContent = "✓ Filtres appliqués !";
+            btn.classList.remove('bg-red-600', 'hover:bg-red-500');
+            btn.classList.add('bg-emerald-600');
+
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.classList.remove('bg-emerald-600');
+                btn.classList.add('bg-red-600', 'hover:bg-red-500');
+            }, 1200);
         }
 
         loadEvents();
