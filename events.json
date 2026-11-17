@@ -52,7 +52,6 @@
         ]
     },
     {
-        "id": 1,
         "title": "Exposition de voitures anciennes",
         "category": "rasso",
         "date": "2026-11-22",
@@ -61,10 +60,10 @@
         "lng": 2.189026,
         "description": "Voitures anciennes avant 1990, solex, motos et mobylettes présentés par Châteauneuf en Anciennes. Chaque mois, le 4ème dimanche.",
         "url": "https://openagenda.com/test-loiret-tourinsoft/events/exposition-de-voitures-anciennes-799093",
-        "stages": []
+        "stages": [],
+        "id": 2
     },
     {
-        "id": 2,
         "title": "9e rassemblement de véhicules anciens",
         "category": "rasso",
         "date": "2027-06-13",
@@ -73,10 +72,10 @@
         "lng": 6.462634,
         "description": "Rassemblement véhicules A.D.A.R",
         "url": "https://openagenda.com/ville-de-draguignan/events/9e-rassemblement-de-vehicules-anciens",
-        "stages": []
+        "stages": [],
+        "id": 3
     },
     {
-        "id": 3,
         "title": "Rassemblement de véhicules anciens et de prestige",
         "category": "rasso",
         "date": "2026-11-29",
@@ -85,6 +84,31 @@
         "lng": 1.935284,
         "description": "🚗 Rassemblement de véhicules anciens et de prestige à La Ferté-Saint-Aubin ! 🏁 Avis aux passionnés d’automobiles ! Le Club RN20 vous donne rendez-vous pour une matinée placée sous le signe de la ...",
         "url": "https://openagenda.com/test-loiret-tourinsoft/events/rassemblement-de-vehicules-anciens-et-de-prestige-5442652",
-        "stages": []
+        "stages": [],
+        "id": 4
+    },
+    {
+        "title": "Rallye créa : Pour faire émerger vos idées et lancez votre projet",
+        "category": "rallye",
+        "date": "2026-12-10",
+        "city": "Perpignan (66)",
+        "lat": 42.690102,
+        "lng": 2.871498,
+        "description": "Dans le cadre de la semaine Restart, nous avons le plaisir de vous inviter à participer à notre \"Rallye Créa\".",
+        "url": "https://openagenda.com/francetravail/events/rallye-crea-pour-faire-emerger-vos-idees-et-lancez-votre-projet-7824924",
+        "stages": [],
+        "id": 5
+    },
+    {
+        "title": "Rallye des Prestations : Rencontrez les Acteurs de Votre Succès Professionnel en une matinée !",
+        "category": "rallye",
+        "date": "2026-11-26",
+        "city": "Perpignan (66)",
+        "lat": 42.690102,
+        "lng": 2.871498,
+        "description": "Vous êtes à la recherche d'une solution stable et souhaitez maximiser vos chances de succès ? Venez au Rallye des Prestations, un événement spécialement conçu pour vous !",
+        "url": "https://openagenda.com/francetravail/events/rallye-des-prestations-rencontrez-les-acteurs-de-votre-succes-professionnel-en-une-matinee-6144894",
+        "stages": [],
+        "id": 6
     }
 ]
