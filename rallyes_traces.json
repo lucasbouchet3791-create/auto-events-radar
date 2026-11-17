@@ -1,0 +1,25 @@
+[
+    {
+        "id": 9001,
+        "title": "Rallye d'Automne La Rochelle",
+        "category": "rallye",
+        "date": "2026-11-21",
+        "city": "Châtelaillon-Plage (17)",
+        "lat": 46.0744,
+        "lng": -1.0886,
+        "description": "Épreuve mythique de la Coupe de France des Rallyes (Coeff. 4). Parc d'assistance sur le front de mer.",
+        "url": "https://www.ffsa.org",
+        "stages": [
+            {
+                "name": "ES 1 / 4 - Les Marais",
+                "km": "14.2 km",
+                "time": "09h15 / 14h30",
+                "path": [[46.058, -0.955], [46.042, -0.938], [46.028, -0.925], [46.012, -0.910]],
+                "spectator_zones": [
+                    { "name": "Zone Public 1 : Épingle de Ballon (Accès D112)", "coords": [46.042, -0.938] },
+                    { "name": "Zone Public 2 : Saut du Canal", "coords": [46.028, -0.925] }
+                ]
+            }
+        ]
+    }
+]
