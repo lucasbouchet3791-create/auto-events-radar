@@ -1,5 +1,4 @@
 import json
-import os
 import requests
 from datetime import datetime
 
@@ -15,36 +14,66 @@ def get_lat_lng(city_name):
         pass
     return None, None
 
-def fetch_public_events():
-    """Interroge l'API publique OpenDataSoft (100% ouverte sans clé) pour les événements auto en France."""
+def fetch_clean_auto_events():
+    """Récupère uniquement les vrais événements automobiles en France."""
     events = []
     seen_titles = set()
     today = datetime.now().strftime("%Y-%m-%d")
-    
-    # Requête sur le jeu de données public des événements OpenAgenda hébergé sur OpenDataSoft
-    keywords = ["rallye", "automobile", "voitures anciennes", "rassemblement", "circuit", "slalom", "course de cote"]
-    
+
+    # Mots-clés ciblés
+    keywords = [
+        "voitures anciennes",
+        "véhicules anciens",
+        "rassemblement auto",
+        "sport auto",
+        "bourse auto",
+        "rallye automobile",
+        "course de côte",
+        "trackday"
+    ]
+
+    # Mots-clés obligatoires pour valider qu'il s'agit bien d'automobile/sport mécanique
+    must_have = [
+        "voiture", "automobile", "véhicule", "youngtimer", "ancienne",
+        "sportive", "rallye", "pilote", "circuit", "ffsa", "auto", "rétro"
+    ]
+
+    # Mots-clés d'exclusion (pour bloquer les randos pédestres, l'emploi et l'agriculture)
+    blacklist = [
+        "rando", "randonnée", "pédestre", "marche", "célibataire",
+        "industrie", "entreprise", "intérim", "randstad", "recrutement",
+        "emploi", "métiers", "bovine", "carcasse", "circuit court",
+        "santé", "photo", "spectacle", "webinaire", "atelier", "formation"
+    ]
+
     for kw in keywords:
-        url = f"https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/evenements-publics-openagenda/records?where=search(title_fr%2C%20%22{kw}%22)%20AND%20firstdate_begin%20%3E%3D%20%22{today}%22&limit=40"
+        url = f"https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/evenements-publics-openagenda/records?where=search(title_fr%2C%20%22{requests.utils.quote(kw)}%22)%20AND%20firstdate_begin%20%3E%3D%20%22{today}%22&limit=30"
         try:
             res = requests.get(url, timeout=10)
             if res.status_code != 200:
                 continue
             data = res.json()
+
             for item in data.get("results", []):
-                title = item.get("title_fr")
+                title = (item.get("title_fr") or "").strip()
                 if not title or title in seen_titles:
                     continue
-                
-                # Filtrage pour éviter les hors-sujets (ex: "rallye lecture")
-                full_text = (title + " " + (item.get("description_fr") or "")).lower()
-                if not any(word in full_text for word in ["voiture", "auto", "moto", "pilote", "circuit", "ffsa", "véhicule", "mécanique", "youngtimer", "ancienne", "rallye"]):
+
+                desc = (item.get("description_fr") or "").strip()
+                full_text = f"{title} {desc}".lower()
+
+                # 1. Rejeter si un mot interdit est présent
+                if any(bad in full_text for bad in blacklist):
+                    continue
+
+                # 2. Exiger au moins un mot-clé automobile
+                if not any(good in full_text for good in must_have):
                     continue
 
                 coords = item.get("location_coordinates")
                 city = item.get("location_city", "")
                 postal = item.get("location_postalcode", "")
-                
+
                 if coords and "lat" in coords and "lon" in coords:
                     lat, lng = coords["lat"], coords["lon"]
                 elif city:
@@ -55,7 +84,7 @@ def fetch_public_events():
                 if not lat or not lng:
                     continue
 
-                # Catégorisation
+                # Catégorisation propre
                 t_lower = title.lower()
                 if "rallye" in t_lower:
                     cat = "rallye"
@@ -67,7 +96,7 @@ def fetch_public_events():
                     cat = "rasso"
 
                 date_str = (item.get("firstdate_begin") or today)[:10]
-                desc = item.get("description_fr") or "Événement automobile recensé automatiquement."
+                clean_desc = desc if desc else "Événement automobile recensé en France."
 
                 seen_titles.add(title)
                 events.append({
@@ -78,7 +107,7 @@ def fetch_public_events():
                     "city": f"{city} ({postal[:2]})" if postal else city,
                     "lat": float(lat),
                     "lng": float(lng),
-                    "description": desc[:200] + "..." if len(desc) > 200 else desc,
+                    "description": clean_desc[:220] + "..." if len(clean_desc) > 220 else clean_desc,
                     "url": item.get("canonicalurl") or "https://www.ffsa.org",
                     "stages": []
                 })
@@ -87,10 +116,7 @@ def fetch_public_events():
 
     return events
 
-print("Collecte des événements en cours...")
-collected = fetch_public_events()
-
-# Toujours inclure les grands rendez-vous de référence (avec spéciales détaillées)
+# Événements majeurs de référence (toujours présents, avec spéciales détaillées)
 reference_events = [
     {
         "id": 9001,
@@ -122,6 +148,18 @@ reference_events = [
     },
     {
         "id": 9003,
+        "title": "Journée Open Trackday - Circuit du Val de Vienne",
+        "category": "circuit",
+        "date": "2026-11-28",
+        "city": "Le Vigeant (86)",
+        "lat": 46.1972,
+        "lng": 0.6358,
+        "description": "Roulage libre par sessions (Berlines, GT, Monoplaces). Accès spectateurs gratuit dans les paddocks.",
+        "url": "https://www.circuitvaldevienne.com",
+        "stages": []
+    },
+    {
+        "id": 9004,
         "title": "Rallye du Var - Finale Championnat de France",
         "category": "rallye",
         "date": "2026-11-27",
@@ -137,9 +175,10 @@ reference_events = [
     }
 ]
 
+collected = fetch_clean_auto_events()
 final_events = reference_events + collected
 
 with open('events.json', 'w', encoding='utf-8') as f:
     json.dump(final_events, f, ensure_ascii=False, indent=4)
 
-print(f"Succès : {len(final_events)} événements enregistrés dans events.json !")
+print(f"Terminé : {len(final_events)} vrais événements enregistrés !")
