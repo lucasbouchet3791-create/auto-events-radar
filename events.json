@@ -14,42 +14,99 @@
                 "name": "ES 1 / 4 - Les Marais",
                 "km": "14.2 km",
                 "time": "09h15 / 14h30",
-                "spectator": "Épingle de Ballon (Accès D112)",
-                "start": [
-                    46.058,
-                    -0.955
+                "path": [
+                    [
+                        46.058,
+                        -0.955
+                    ],
+                    [
+                        46.042,
+                        -0.938
+                    ],
+                    [
+                        46.028,
+                        -0.925
+                    ],
+                    [
+                        46.012,
+                        -0.91
+                    ]
                 ],
-                "end": [
-                    46.012,
-                    -0.91
+                "spectator_zones": [
+                    {
+                        "name": "Zone Public 1 : Épingle de Ballon (Accès D112)",
+                        "coords": [
+                            46.042,
+                            -0.938
+                        ]
+                    },
+                    {
+                        "name": "Zone Public 2 : Saut du Canal",
+                        "coords": [
+                            46.028,
+                            -0.925
+                        ]
+                    }
                 ]
             },
             {
                 "name": "ES 2 / 5 - La Devise",
                 "km": "18.6 km",
                 "time": "10h05 / 15h20",
-                "spectator": "Bourg de Vandré - Chicane",
-                "start": [
-                    46.055,
-                    -0.765
+                "path": [
+                    [
+                        46.055,
+                        -0.765
+                    ],
+                    [
+                        46.025,
+                        -0.758
+                    ],
+                    [
+                        45.998,
+                        -0.745
+                    ],
+                    [
+                        45.98,
+                        -0.74
+                    ]
                 ],
-                "end": [
-                    45.98,
-                    -0.74
+                "spectator_zones": [
+                    {
+                        "name": "Zone Public : Chicane Bourg de Vandré",
+                        "coords": [
+                            46.025,
+                            -0.758
+                        ]
+                    }
                 ]
             },
             {
                 "name": "ES 3 / 6 - Aunis",
                 "km": "11.8 km",
                 "time": "11h00 / 16h15",
-                "spectator": "Arrivée Surgères",
-                "start": [
-                    46.105,
-                    -0.752
+                "path": [
+                    [
+                        46.105,
+                        -0.752
+                    ],
+                    [
+                        46.122,
+                        -0.785
+                    ],
+                    [
+                        46.14,
+                        -0.82
+                    ]
                 ],
-                "end": [
-                    46.14,
-                    -0.82
+                "spectator_zones": [
+                    {
+                        "name": "Zone Public : Épingle Arrivée Surgères",
+                        "coords": [
+                            46.122,
+                            -0.785
+                        ]
+                    }
                 ]
             }
         ]
@@ -93,28 +150,56 @@
                 "name": "ES 1 - Col du Babaou",
                 "km": "24.1 km",
                 "time": "08h30",
-                "spectator": "Sommet du Col",
-                "start": [
-                    43.285,
-                    6.455
+                "path": [
+                    [
+                        43.285,
+                        6.455
+                    ],
+                    [
+                        43.298,
+                        6.468
+                    ],
+                    [
+                        43.31,
+                        6.48
+                    ]
                 ],
-                "end": [
-                    43.31,
-                    6.48
+                "spectator_zones": [
+                    {
+                        "name": "Zone Public : Sommet du Col du Babaou",
+                        "coords": [
+                            43.298,
+                            6.468
+                        ]
+                    }
                 ]
             },
             {
                 "name": "ES 2 - Collobrières",
                 "km": "32.4 km",
                 "time": "10h15",
-                "spectator": "Épingle de la Chartreuse",
-                "start": [
-                    43.235,
-                    6.31
+                "path": [
+                    [
+                        43.235,
+                        6.31
+                    ],
+                    [
+                        43.248,
+                        6.345
+                    ],
+                    [
+                        43.26,
+                        6.38
+                    ]
                 ],
-                "end": [
-                    43.26,
-                    6.38
+                "spectator_zones": [
+                    {
+                        "name": "Zone Public : Épingle de la Chartreuse",
+                        "coords": [
+                            43.248,
+                            6.345
+                        ]
+                    }
                 ]
             }
         ]
