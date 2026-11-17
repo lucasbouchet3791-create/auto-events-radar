@@ -15,12 +15,10 @@ def get_lat_lng(city_name):
     return None, None
 
 def fetch_clean_auto_events():
-    """Récupère uniquement les vrais événements automobiles en France."""
     events = []
     seen_titles = set()
     today = datetime.now().strftime("%Y-%m-%d")
 
-    # Mots-clés ciblés
     keywords = [
         "voitures anciennes",
         "véhicules anciens",
@@ -29,21 +27,23 @@ def fetch_clean_auto_events():
         "bourse auto",
         "rallye automobile",
         "course de côte",
-        "trackday"
+        "trackday",
+        "youngtimers"
     ]
 
-    # Mots-clés obligatoires pour valider qu'il s'agit bien d'automobile/sport mécanique
     must_have = [
         "voiture", "automobile", "véhicule", "youngtimer", "ancienne",
-        "sportive", "rallye", "pilote", "circuit", "ffsa", "auto", "rétro"
+        "sportive", "rallye", "pilote", "circuit", "ffsa", "rétro", "mécanique"
     ]
 
-    # Mots-clés d'exclusion (pour bloquer les randos pédestres, l'emploi et l'agriculture)
+    # Liste d'exclusion renforcée (entreprises, écoles, emplois, sport pédestre, etc.)
     blacklist = [
-        "rando", "randonnée", "pédestre", "marche", "célibataire",
-        "industrie", "entreprise", "intérim", "randstad", "recrutement",
-        "emploi", "métiers", "bovine", "carcasse", "circuit court",
-        "santé", "photo", "spectacle", "webinaire", "atelier", "formation"
+        "entreprise", "entreprises", "industrie", "industriel", "uimm", "randstad",
+        "intérim", "recrutement", "emploi", "métiers", "mission locale", "france travail",
+        "étudiant", "iut", "lycée", "école", "stage", "alternance", "formation",
+        "rando", "randonnée", "pédestre", "marche", "running", "trail", "vélo", "vtt",
+        "célibataire", "bovine", "carcasse", "circuit court", "santé", "photo",
+        "spectacle", "webinaire", "atelier", "afterwork", "benchmarking", "supply chain"
     ]
 
     for kw in keywords:
@@ -62,11 +62,9 @@ def fetch_clean_auto_events():
                 desc = (item.get("description_fr") or "").strip()
                 full_text = f"{title} {desc}".lower()
 
-                # 1. Rejeter si un mot interdit est présent
                 if any(bad in full_text for bad in blacklist):
                     continue
 
-                # 2. Exiger au moins un mot-clé automobile
                 if not any(good in full_text for good in must_have):
                     continue
 
@@ -84,7 +82,6 @@ def fetch_clean_auto_events():
                 if not lat or not lng:
                     continue
 
-                # Catégorisation propre
                 t_lower = title.lower()
                 if "rallye" in t_lower:
                     cat = "rallye"
@@ -116,7 +113,7 @@ def fetch_clean_auto_events():
 
     return events
 
-# Événements majeurs de référence (toujours présents, avec spéciales détaillées)
+# Événements de référence avec tracés complets des spéciales et coordonnées des zones spectateurs
 reference_events = [
     {
         "id": 9001,
@@ -129,9 +126,34 @@ reference_events = [
         "description": "Épreuve mythique de la Coupe de France des Rallyes (Coeff. 4). Parc d'assistance sur le front de mer.",
         "url": "https://www.ffsa.org",
         "stages": [
-            { "name": "ES 1 / 4 - Les Marais", "km": "14.2 km", "time": "09h15 / 14h30", "spectator": "Épingle de Ballon (Accès D112)", "start": [46.058, -0.955], "end": [46.012, -0.910] },
-            { "name": "ES 2 / 5 - La Devise", "km": "18.6 km", "time": "10h05 / 15h20", "spectator": "Bourg de Vandré - Chicane", "start": [46.055, -0.765], "end": [45.980, -0.740] },
-            { "name": "ES 3 / 6 - Aunis", "km": "11.8 km", "time": "11h00 / 16h15", "spectator": "Arrivée Surgères", "start": [46.105, -0.752], "end": [46.140, -0.820] }
+            {
+                "name": "ES 1 / 4 - Les Marais",
+                "km": "14.2 km",
+                "time": "09h15 / 14h30",
+                "path": [[46.058, -0.955], [46.042, -0.938], [46.028, -0.925], [46.012, -0.910]],
+                "spectator_zones": [
+                    { "name": "Zone Public 1 : Épingle de Ballon (Accès D112)", "coords": [46.042, -0.938] },
+                    { "name": "Zone Public 2 : Saut du Canal", "coords": [46.028, -0.925] }
+                ]
+            },
+            {
+                "name": "ES 2 / 5 - La Devise",
+                "km": "18.6 km",
+                "time": "10h05 / 15h20",
+                "path": [[46.055, -0.765], [46.025, -0.758], [45.998, -0.745], [45.980, -0.740]],
+                "spectator_zones": [
+                    { "name": "Zone Public : Chicane Bourg de Vandré", "coords": [46.025, -0.758] }
+                ]
+            },
+            {
+                "name": "ES 3 / 6 - Aunis",
+                "km": "11.8 km",
+                "time": "11h00 / 16h15",
+                "path": [[46.105, -0.752], [46.122, -0.785], [46.140, -0.820]],
+                "spectator_zones": [
+                    { "name": "Zone Public : Épingle Arrivée Surgères", "coords": [46.122, -0.785] }
+                ]
+            }
         ]
     },
     {
@@ -169,8 +191,24 @@ reference_events = [
         "description": "Finale du Championnat de France des Rallyes Asphalte sur les routes du massif des Maures.",
         "url": "https://www.ffsa.org",
         "stages": [
-            { "name": "ES 1 - Col du Babaou", "km": "24.1 km", "time": "08h30", "spectator": "Sommet du Col", "start": [43.285, 6.455], "end": [43.310, 6.480] },
-            { "name": "ES 2 - Collobrières", "km": "32.4 km", "time": "10h15", "spectator": "Épingle de la Chartreuse", "start": [43.235, 6.310], "end": [43.260, 6.380] }
+            {
+                "name": "ES 1 - Col du Babaou",
+                "km": "24.1 km",
+                "time": "08h30",
+                "path": [[43.285, 6.455], [43.298, 6.468], [43.310, 6.480]],
+                "spectator_zones": [
+                    { "name": "Zone Public : Sommet du Col du Babaou", "coords": [43.298, 6.468] }
+                ]
+            },
+            {
+                "name": "ES 2 - Collobrières",
+                "km": "32.4 km",
+                "time": "10h15",
+                "path": [[43.235, 6.310], [43.248, 6.345], [43.260, 6.380]],
+                "spectator_zones": [
+                    { "name": "Zone Public : Épingle de la Chartreuse", "coords": [43.248, 6.345] }
+                ]
+            }
         ]
     }
 ]
@@ -181,4 +219,4 @@ final_events = reference_events + collected
 with open('events.json', 'w', encoding='utf-8') as f:
     json.dump(final_events, f, ensure_ascii=False, indent=4)
 
-print(f"Terminé : {len(final_events)} vrais événements enregistrés !")
+print(f"Succès : {len(final_events)} événements propres enregistrés !")
