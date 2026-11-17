@@ -74,10 +74,14 @@
                 <p id="detail-desc" class="text-sm text-slate-300 mb-4"></p>
                 
                 <div id="rally-stages-container" class="hidden border-t border-slate-800 pt-3">
-                    <h3 class="text-xs font-bold uppercase tracking-wider text-red-400 mb-2 flex items-center justify-between">
-                        <span>Programme des Spéciales (ES)</span>
-                        <span id="total-km" class="text-slate-400 font-normal"></span>
-                    </h3>
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-red-400">Spéciales & Zones Public</h3>
+                        <span id="total-km" class="text-xs text-slate-400"></span>
+                    </div>
+                    <div class="flex items-center gap-3 text-[11px] text-slate-400 mb-2 bg-slate-900 p-2 rounded">
+                        <span class="flex items-center gap-1"><span class="w-3 h-1 bg-red-500 inline-block"></span> Tracé ES</span>
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span> Zone Spectateurs</span>
+                    </div>
                     <div id="stages-list" class="space-y-2"></div>
                 </div>
 
@@ -109,61 +113,6 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        const FALLBACK_EVENTS = [
-            {
-                id: 1,
-                title: "Rallye d'Automne La Rochelle",
-                category: "rallye",
-                date: "2026-11-21",
-                city: "Châtelaillon-Plage (17)",
-                lat: 46.0744,
-                lng: -1.0886,
-                description: "Épreuve mythique de la Coupe de France des Rallyes (Coeff. 4). Parc d'assistance sur le front de mer.",
-                url: "https://www.ffsa.org",
-                stages: [
-                    { name: "ES 1 / 4 - Les Marais", km: "14.2 km", time: "09h15 / 14h30", spectator: "Épingle de Ballon (Accès D112)", start: [46.058, -0.955], end: [46.012, -0.910] },
-                    { name: "ES 2 / 5 - La Devise", km: "18.6 km", time: "10h05 / 15h20", spectator: "Bourg de Vandré - Chicane", start: [46.055, -0.765], end: [45.980, -0.740] },
-                    { name: "ES 3 / 6 - Aunis", km: "11.8 km", time: "11h00 / 16h15", spectator: "Arrivée Surgères", start: [46.105, -0.752], end: [46.140, -0.820] }
-                ]
-            },
-            {
-                id: 2,
-                title: "Rassemblement Mensuel Véhicules Anciens & Prestige",
-                category: "rasso",
-                date: "2026-11-22",
-                city: "Rochefort (17)",
-                lat: 45.9367,
-                lng: -0.9617,
-                description: "Rendez-vous convivial sur le parking de la Corderie Royale. Ouvert aux youngtimers, sportives et anciennes.",
-                url: "https://www.lva-auto.fr",
-                stages: []
-            },
-            {
-                id: 3,
-                title: "Journée Open Trackday - Circuit du Val de Vienne",
-                category: "circuit",
-                date: "2026-11-28",
-                city: "Le Vigeant (86)",
-                lat: 46.1972,
-                lng: 0.6358,
-                description: "Roulage libre par sessions (Berlines, GT, Monoplaces). Accès spectateurs gratuit dans les paddocks.",
-                url: "https://www.circuitvaldevienne.com",
-                stages: []
-            },
-            {
-                id: 4,
-                title: "Course de Côte Régionale de Bournezeau",
-                category: "cote",
-                date: "2026-12-05",
-                city: "Bournezeau (85)",
-                lat: 46.6356,
-                lng: -1.1714,
-                description: "Tracé rapide de 1,8 km avec épingle technique à mi-parcours. Restauration sur place.",
-                url: "https://www.ffsa.org",
-                stages: []
-            }
-        ];
-
         let userLat = 45.9367;
         let userLng = -0.9617;
         let allEvents = [];
@@ -188,11 +137,12 @@
         async function loadEvents() {
             try {
                 const response = await fetch('./events.json?t=' + Date.now());
-                if (!response.ok) throw new Error("Fichier events.json absent");
+                if (!response.ok) throw new Error("Erreur chargement JSON");
                 allEvents = await response.json();
                 document.getElementById('data-source-status').textContent = "Connecté à events.json (" + allEvents.length + " événements)";
             } catch (err) {
-                allEvents = FALLBACK_EVENTS;
+                console.error(err);
+                allEvents = [];
             }
             renderApp();
         }
@@ -238,7 +188,7 @@
                 .sort((a, b) => a.distance - b.distance);
 
             if (filtered.length === 0) {
-                listEl.innerHTML = `<p class="text-xs text-slate-400 text-center py-8">Aucun événement trouvé dans ce rayon. Augmente les kilomètres !</p>`;
+                listEl.innerHTML = `<p class="text-xs text-slate-400 text-center py-8">Aucun événement trouvé dans ce rayon. Augmente les kilomètres et clique sur Appliquer !</p>`;
                 return;
             }
 
@@ -250,10 +200,7 @@
 
                 const card = document.createElement('div');
                 card.className = "bg-slate-800/60 hover:bg-slate-800 border border-slate-700/70 rounded-lg p-3 cursor-pointer transition";
-                card.onclick = () => {
-                    map.setView([ev.lat, ev.lng], 11);
-                    openEventDetail(ev);
-                };
+                card.onclick = () => openEventDetail(ev);
                 card.innerHTML = `
                     <div class="flex justify-between items-center mb-1">
                         <span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded" style="background:${getCatColor(ev.category)}33; color:${getCatColor(ev.category)}">${ev.category}</span>
@@ -264,7 +211,7 @@
                         <span>${ev.city}</span>
                         <span>${ev.date}</span>
                     </div>
-                    ${ev.stages && ev.stages.length > 0 ? `<div class="mt-2 text-[11px] text-red-400 font-medium">${ev.stages.length} spéciales détaillées</div>` : ''}
+                    ${ev.stages && ev.stages.length > 0 ? `<div class="mt-2 text-[11px] text-red-400 font-medium">${ev.stages.length} spéciales & zones public sur la carte</div>` : ''}
                 `;
                 listEl.appendChild(card);
             });
@@ -288,8 +235,36 @@
             if (ev.stages && ev.stages.length > 0) {
                 stagesContainer.classList.remove('hidden');
                 let totalKm = 0;
+                let allCoords = [];
+
                 ev.stages.forEach((st) => {
                     totalKm += parseFloat(st.km) || 0;
+
+                    // Tracé automatique de la spéciale sur la carte
+                    if (st.path && st.path.length > 1) {
+                        allCoords.push(...st.path);
+                        const polyline = L.polyline(st.path, { color: '#ef4444', weight: 5, opacity: 0.9 }).addTo(stageLayer);
+                        polyline.bindPopup(`<b>${st.name}</b><br>Passages : ${st.time}`);
+
+                        // Marqueur Départ (Vert) et Arrivée (Damier/Noir)
+                        L.circleMarker(st.path[0], { radius: 6, fillColor: '#10b981', color: '#fff', weight: 2, fillOpacity: 1 })
+                            .addTo(stageLayer).bindPopup(`Départ ${st.name}`);
+                        L.circleMarker(st.path[st.path.length - 1], { radius: 6, fillColor: '#0f172a', color: '#fff', weight: 2, fillOpacity: 1 })
+                            .addTo(stageLayer).bindPopup(`Arrivée ${st.name}`);
+                    }
+
+                    // Affichage automatique des zones spectateurs (Points Jaunes)
+                    let zonesHtml = '';
+                    if (st.spectator_zones && st.spectator_zones.length > 0) {
+                        st.spectator_zones.forEach(zone => {
+                            allCoords.push(zone.coords);
+                            L.circleMarker(zone.coords, { radius: 8, fillColor: '#facc15', color: '#000', weight: 2, fillOpacity: 1 })
+                                .addTo(stageLayer)
+                                .bindPopup(`<b>${zone.name}</b><br>Spéciale : ${st.name}<br>Horaires : ${st.time}`);
+                            zonesHtml += `<div class="text-amber-400 text-[11px] mt-1">• ${zone.name}</div>`;
+                        });
+                    }
+
                     const div = document.createElement('div');
                     div.className = "bg-slate-900 border border-slate-800 p-2.5 rounded-lg text-xs space-y-1";
                     div.innerHTML = `
@@ -298,23 +273,26 @@
                             <span class="text-red-400">${st.km}</span>
                         </div>
                         <div class="text-slate-400 text-[11px]">Passages : ${st.time}</div>
-                        ${st.spectator ? `<div class="text-amber-400/90 text-[11px]">Spot : ${st.spectator}</div>` : ''}
-                        ${st.start && st.end ? `<button onclick='drawStage(${JSON.stringify(st.start)}, ${JSON.stringify(st.end)}, "${st.name}")' class="mt-1 text-[11px] bg-red-600/20 hover:bg-red-600/40 text-red-300 px-2 py-1 rounded">Tracer la spéciale sur la carte</button>` : ''}
+                        ${zonesHtml}
+                        ${st.path ? `<button onclick='zoomToStage(${JSON.stringify(st.path)})' class="mt-1.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-200 px-2 py-1 rounded">Centrer sur cette spéciale</button>` : ''}
                     `;
                     stagesList.appendChild(div);
                 });
+
                 document.getElementById('total-km').textContent = totalKm.toFixed(1) + " km chrono";
+
+                // Zoom automatique pour englober toutes les spéciales et zones public du rallye
+                if (allCoords.length > 0) {
+                    map.fitBounds(L.latLngBounds(allCoords), { padding: [50, 50] });
+                }
             } else {
                 stagesContainer.classList.add('hidden');
+                map.setView([ev.lat, ev.lng], 12);
             }
         }
 
-        function drawStage(start, end, name) {
-            stageLayer.clearLayers();
-            const line = L.polyline([start, end], { color: '#ef4444', weight: 5, dashArray: '8, 8' }).addTo(stageLayer);
-            L.marker(start).addTo(stageLayer).bindPopup(`Départ ${name}`).openPopup();
-            L.marker(end).addTo(stageLayer).bindPopup(`Arrivée ${name}`);
-            map.fitBounds(line.getBounds(), { padding: [50, 50] });
+        function zoomToStage(path) {
+            map.fitBounds(L.latLngBounds(path), { padding: [60, 60] });
         }
 
         function closeDrawer() {
@@ -326,12 +304,10 @@
             document.getElementById(id).classList.toggle('hidden');
         }
 
-        // Met à jour l'affichage numérique du curseur sans déclencher le filtre
         document.getElementById('radius-slider').addEventListener('input', (e) => {
             document.getElementById('radius-val').textContent = e.target.value;
         });
 
-        // Gestion de la sélection des catégories (visuel uniquement)
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => {
@@ -344,7 +320,6 @@
             });
         });
 
-        // Fonction déclenchée uniquement par le bouton Appliquer
         function applyFilters() {
             maxRadius = parseInt(document.getElementById('radius-slider').value);
             renderApp();
