@@ -1,64 +1,94 @@
 import json
 import requests
+from datetime import datetime
 
 def get_lat_lng(city_name):
-    """Interroge l'API officielle française pour trouver les coordonnées GPS d'une ville."""
+    """Récupère les coordonnées GPS exactes via l'API du gouvernement français."""
     try:
         url = f"https://api-adresse.data.gouv.fr/search/?q={requests.utils.quote(city_name)}&limit=1"
-        res = requests.get(url).json()
+        res = requests.get(url, timeout=5).json()
         if res.get('features'):
             coords = res['features'][0]['geometry']['coordinates']
-            return coords[1], coords[0] # Retourne (lat, lng)
-    except Exception as e:
-        print(f"Erreur géocodage pour {city_name}: {e}")
-    return 46.6033, 1.8883 # Centre de la France par défaut si introuvable
+            return coords[1], coords[0]
+    except Exception:
+        pass
+    return None, None
 
-# === BASE DE DONNÉES DES ÉVÉNEMENTS ===
-# Ici, tu pourras ajouter tes fonctions de scraping (BeautifulSoup) pour remplir cette liste automatiquement.
-# Pour l'instant, voici une structure prête à recevoir des événements de toute la France.
-raw_events = [
-    {
-        "title": "Rallye du Var",
-        "category": "rallye",
-        "date": "2026-11-27",
-        "city": "Sainte-Maxime (83)",
-        "description": "Finale du championnat de France des rallyes.",
-        "url": "https://www.ffsa.org",
-        "stages": [
-            { "name": "ES 1 - Col du Babaou", "km": "24.1 km", "time": "08h30", "spectator": "Zone public col", "start": [43.285, 6.455], "end": [43.310, 6.480] }
-        ]
-    },
-    {
-        "title": "Rasso Mensuel Youngtimers",
-        "category": "rasso",
-        "date": "2026-11-29",
-        "city": "Bordeaux (33)",
-        "description": "Rassemblement de sportives des années 80 à 2000.",
-        "url": "https://www.newsdancienne.com",
-        "stages": []
-    }
-]
+def fetch_openagenda_auto_events():
+    """Récupère automatiquement les événements auto, rallyes et rassos publiés sur OpenAgenda en France."""
+    events = []
+    keywords = ["rallye", "automobile", "voitures anciennes", "rassemblement auto", "circuit", "slalom"]
+    seen_titles = set()
+    
+    # Date du jour au format ISO pour ne récupérer que les événements à venir
+    today = datetime.now().strftime("%Y-%m-%d")
 
-events_list = []
+    for kw in keywords:
+        url = f"https://openagenda.com/agendas/events.json?search={kw}&timings[gte]={today}&limit=30"
+        try:
+            response = requests.get(url, timeout=10)
+            if response.status_code != 200:
+                continue
+            data = response.json()
+            for item in data.get("events", []):
+                title = item.get("title", {}).get("fr") or item.get("title", {}).get("en")
+                if not title or title in seen_titles:
+                    continue
+                
+                location = item.get("location", {})
+                city = location.get("city", "")
+                postal = location.get("postalCode", "")
+                lat = location.get("latitude")
+                lng = location.get("longitude")
 
-for idx, ev in enumerate(raw_events, start=1):
-    lat, lng = get_lat_lng(ev["city"])
-    event_data = {
-        "id": idx,
-        "title": ev["title"],
-        "category": ev["category"],
-        "date": ev["date"],
-        "city": ev["city"],
-        "lat": lat,
-        "lng": lng,
-        "description": ev["description"],
-        "url": ev["url"],
-        "stages": ev.get("stages", [])
-    }
-    events_list.append(event_data)
+                # Si l'événement n'a pas de GPS intégré, on le géocode via l'API gouvernementale
+                if (not lat or not lng) and city:
+                    lat, lng = get_lat_lng(f"{city} {postal}")
+                
+                if not lat or not lng:
+                    continue
 
-# Enregistrement dans events.json lu par ton site
+                # Catégorisation automatique selon les mots-clés du titre
+                t_lower = title.lower()
+                if "rallye" in t_lower:
+                    cat = "rallye"
+                elif "circuit" in t_lower or "trackday" in t_lower:
+                    cat = "circuit"
+                elif "côte" in t_lower or "slalom" in t_lower:
+                    cat = "cote"
+                else:
+                    cat = "rasso"
+
+                # Extraction de la date
+                timings = item.get("timings", [])
+                date_str = timings[0].get("begin", "")[:10] if timings else today
+
+                desc = item.get("description", {}).get("fr") or "Événement automobile recensé automatiquement."
+                
+                seen_titles.add(title)
+                events.append({
+                    "id": len(events) + 1,
+                    "title": title,
+                    "category": cat,
+                    "date": date_str,
+                    "city": f"{city} ({postal[:2]})" if postal else city,
+                    "lat": float(lat),
+                    "lng": float(lng),
+                    "description": desc[:200] + "..." if len(desc) > 200 else desc,
+                    "url": item.get("canonicalUrl", "https://openagenda.com"),
+                    "stages": []
+                })
+        except Exception as e:
+            print(f"Erreur sur le mot-clé {kw}: {e}")
+
+    return events
+
+# Exécution de la collecte
+print("Recherche des événements automobiles en France en cours...")
+collected_events = fetch_openagenda_auto_events()
+
+# Sauvegarde dans events.json
 with open('events.json', 'w', encoding='utf-8') as f:
-    json.dump(events_list, f, ensure_ascii=False, indent=4)
+    json.dump(collected_events, f, ensure_ascii=False, indent=4)
 
-print(f"{len(events_list)} événements géolocalisés et enregistrés avec succès dans events.json !")
+print(f"Terminé : {len(collected_events)} événements réels trouvés et enregistrés !")
