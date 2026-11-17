@@ -7,35 +7,23 @@
         "city": "Châtelaillon-Plage (17)",
         "lat": 46.0744,
         "lng": -1.0886,
-        "description": "Épreuve mythique de la Coupe de France des Rallyes (Coeff. 4). Parc d'assistance sur le front de mer.",
+        "description": "Épreuve officielle mise à jour automatiquement par le script Python.",
         "url": "https://www.ffsa.org",
         "stages": [
-            { "name": "ES 1 / 4 - Les Marais", "km": "14.2 km", "time": "09h15 / 14h30", "spectator": "Épingle de Ballon (Accès D112)", "start": [46.058, -0.955], "end": [46.012, -0.910] },
-            { "name": "ES 2 / 5 - La Devise", "km": "18.6 km", "time": "10h05 / 15h20", "spectator": "Bourg de Vandré - Chicane", "start": [46.055, -0.765], "end": [45.980, -0.740] }
+            {
+                "name": "ES 1 - Les Marais",
+                "km": "14.2 km",
+                "time": "09h15",
+                "spectator": "Épingle de Ballon",
+                "start": [
+                    46.058,
+                    -0.955
+                ],
+                "end": [
+                    46.012,
+                    -0.91
+                ]
+            }
         ]
-    },
-    {
-        "id": 2,
-        "title": "Rassemblement Mensuel Véhicules Anciens & Prestige",
-        "category": "rasso",
-        "date": "2026-11-22",
-        "city": "Rochefort (17)",
-        "lat": 45.9367,
-        "lng": -0.9617,
-        "description": "Rendez-vous convivial sur le parking de la Corderie Royale. Ouvert aux youngtimers, sportives et anciennes.",
-        "url": "https://www.lva-auto.fr",
-        "stages": []
-    },
-    {
-        "id": 3,
-        "title": "Journée Open Trackday - Circuit du Val de Vienne",
-        "category": "circuit",
-        "date": "2026-11-28",
-        "city": "Le Vigeant (86)",
-        "lat": 46.1972,
-        "lng": 0.6358,
-        "description": "Roulage libre par sessions (Berlines, GT, Monoplaces). Accès spectateurs gratuit dans les paddocks.",
-        "url": "https://www.circuitvaldevienne.com",
-        "stages": []
     }
 ]
