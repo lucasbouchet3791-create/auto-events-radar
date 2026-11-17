@@ -1,0 +1,29 @@
+name: Mettre à jour les événements
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # S'exécute tous les jours à 3h00 du matin
+  workflow_dispatch: # Permet de le lancer manuellement depuis l'onglet Actions
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Configurer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Lancer le script de mise à jour
+        run: python update.py
+
+      - name: Sauvegarder les modifications sur le site
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Mise à jour automatique des événements auto"
+          branch: main
