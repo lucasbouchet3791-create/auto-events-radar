@@ -208,18 +208,6 @@
         "id": 14
     },
     {
-        "title": "Rétrospective Rajak Ohanian",
-        "category": "rasso",
-        "date": "2027-03-01",
-        "city": "Paris (75)",
-        "lat": 48.877695,
-        "lng": 2.371846,
-        "description": "L'exposition rétrospective de Rajak Ohanian (1933–2023) présente un vaste parcours à travers son œuvre photographique au siège du Parti communiste français, place du Colonel-Fabien à Paris.",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/retrospective-rajak-ohanian",
-        "stages": [],
-        "id": 15
-    },
-    {
         "title": "Exposition rétrospective : Regards",
         "category": "rasso",
         "date": "2027-01-09",
@@ -228,6 +216,18 @@
         "lng": 2.753034,
         "description": "Du 9 janvier au 6 février 2027, l’Espace culturel de Châtillon-sur-Loire accueille une exposition rétrospective consacrée à Daniel Girard, intitulée « Regards ». Cette exposition invite les visiteu...",
         "url": "https://openagenda.com/test-loiret-tourinsoft/events/exposition-retrospective-regards-3581876",
+        "stages": [],
+        "id": 15
+    },
+    {
+        "title": "Rétrospective Rajak Ohanian",
+        "category": "rasso",
+        "date": "2027-03-01",
+        "city": "Paris (75)",
+        "lat": 48.877695,
+        "lng": 2.371846,
+        "description": "L'exposition rétrospective de Rajak Ohanian (1933–2023) présente un vaste parcours à travers son œuvre photographique au siège du Parti communiste français, place du Colonel-Fabien à Paris.",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/retrospective-rajak-ohanian",
         "stages": [],
         "id": 16
     },
@@ -280,18 +280,6 @@
         "id": 20
     },
     {
-        "title": "Visite olfactive des collections",
-        "category": "rasso",
-        "date": "2027-05-16",
-        "city": "Roubaix (59)",
-        "lat": 50.692168,
-        "lng": 3.167645,
-        "description": "Le 3e dimanche de chaque mois de 16h15 à 17h15, le musée La Piscine propose un itinéraire olfactif à travers les œuvres de nos collections",
-        "url": "https://openagenda.com/region-hauts-de-france/events/olfactorenbezoek-van-de-collecties-6847448",
-        "stages": [],
-        "id": 21
-    },
-    {
         "title": "LA COLLECTION TINELLE",
         "category": "rasso",
         "date": "2032-01-01",
@@ -300,6 +288,18 @@
         "lng": 2.307504,
         "description": "Proposition de spectacle pour le catalogue culturel du Loiret",
         "url": "https://openagenda.com/catalogue-culturel-du-loiret/events/la-collection-tinelle-640340",
+        "stages": [],
+        "id": 21
+    },
+    {
+        "title": "Visite olfactive des collections",
+        "category": "rasso",
+        "date": "2027-05-16",
+        "city": "Roubaix (59)",
+        "lat": 50.692168,
+        "lng": 3.167645,
+        "description": "Le 3e dimanche de chaque mois de 16h15 à 17h15, le musée La Piscine propose un itinéraire olfactif à travers les œuvres de nos collections",
+        "url": "https://openagenda.com/region-hauts-de-france/events/olfactorenbezoek-van-de-collecties-6847448",
         "stages": [],
         "id": 22
     },
@@ -388,18 +388,6 @@
         "id": 29
     },
     {
-        "title": "Journée européenne des collections universitaires",
-        "category": "rasso",
-        "date": "2026-11-21",
-        "city": "Rennes (35)",
-        "lat": 48.118327,
-        "lng": -1.641785,
-        "description": "Découverte des collections patrimoniales de l'Université de Rennes",
-        "url": "https://openagenda.com/echosciences/events/journee-europeenne-des-collections-universitaires-2993846",
-        "stages": [],
-        "id": 30
-    },
-    {
         "title": "L’affiche d’exposition à Genève: la collection du MAH",
         "category": "rasso",
         "date": "2027-06-10",
@@ -408,6 +396,18 @@
         "lng": 6.145267,
         "description": "Quand l’affiche devient la vitrine de la vie artistique genevoise",
         "url": "https://openagenda.com/coolturalia/events/laffiche-dexposition-a-geneve-la-collection-du-mah",
+        "stages": [],
+        "id": 30
+    },
+    {
+        "title": "Journée européenne des collections universitaires",
+        "category": "rasso",
+        "date": "2026-11-21",
+        "city": "Rennes (35)",
+        "lat": 48.118327,
+        "lng": -1.641785,
+        "description": "Découverte des collections patrimoniales de l'Université de Rennes",
+        "url": "https://openagenda.com/echosciences/events/journee-europeenne-des-collections-universitaires-2993846",
         "stages": [],
         "id": 31
     },
@@ -448,6 +448,18 @@
         "id": 34
     },
     {
+        "title": "RAVEN PAUL COLLECTION",
+        "category": "rasso",
+        "date": "2026-11-26",
+        "city": "Lille (59)",
+        "lat": 50.638018,
+        "lng": 3.066605,
+        "description": "dans le cadre du Festival Culture Bar-Bars",
+        "url": "https://openagenda.com/festival-culture-bar-bars/events/raven-paul-collection",
+        "stages": [],
+        "id": 35
+    },
+    {
         "title": "Visite guidée des collections du musée",
         "category": "rasso",
         "date": "2026-12-24",
@@ -457,7 +469,7 @@
         "description": "Tous publics – Visite comprise dans le droit d’entrée du musée.",
         "url": "https://openagenda.com/test-loiret-tourinsoft/events/visite-guidee-des-collections-du-musee-9294195",
         "stages": [],
-        "id": 35
+        "id": 36
     },
     {
         "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #8 - Sammy Baloji",
@@ -469,31 +481,7 @@
         "description": "#8 -- Sammy Baloji - Mesurer, négocier, et se réapproprier le projet de la modernité",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heredar-colecciones-fotograficas-postcoloniales-en-mundos-africanos-6-7754883",
         "stages": [],
-        "id": 36
-    },
-    {
-        "title": "RAVEN PAUL COLLECTION",
-        "category": "rasso",
-        "date": "2026-11-26",
-        "city": "Lille (59)",
-        "lat": 50.638018,
-        "lng": 3.066605,
-        "description": "dans le cadre du Festival Culture Bar-Bars",
-        "url": "https://openagenda.com/festival-culture-bar-bars/events/raven-paul-collection",
-        "stages": [],
         "id": 37
-    },
-    {
-        "title": "Le sommeil dans les collections du MusBA",
-        "category": "rasso",
-        "date": "2026-12-16",
-        "city": "Bordeaux (33)",
-        "lat": 44.837462,
-        "lng": -0.581143,
-        "description": "visite commentée autour des collections permanentes.",
-        "url": "https://openagenda.com/ville-de-bordeaux/events/visite-commentee-autour-des-collections-permanentes-1524850",
-        "stages": [],
-        "id": 38
     },
     {
         "title": "Le verre, au-delà de la matière. Les collections du Cirva",
@@ -504,6 +492,18 @@
         "lng": 6.138608,
         "description": "Visite commentée de l'exposition",
         "url": "https://openagenda.com/coolturalia/events/le-verre-au-dela-de-la-matiere-les-collections-du-cirva-6723119",
+        "stages": [],
+        "id": 38
+    },
+    {
+        "title": "Le sommeil dans les collections du MusBA",
+        "category": "rasso",
+        "date": "2026-12-16",
+        "city": "Bordeaux (33)",
+        "lat": 44.837462,
+        "lng": -0.581143,
+        "description": "visite commentée autour des collections permanentes.",
+        "url": "https://openagenda.com/ville-de-bordeaux/events/visite-commentee-autour-des-collections-permanentes-1524850",
         "stages": [],
         "id": 39
     },
@@ -580,6 +580,18 @@
         "id": 45
     },
     {
+        "title": "Bourse de collectionneurs sur le Sport",
+        "category": "rasso",
+        "date": "2026-11-29",
+        "city": "Carvin (62)",
+        "lat": 50.495073,
+        "lng": 2.950712,
+        "description": "Venez trouver le maillot vintage, l'écharpe, le fanion, la photo dédicacée ou l'écharpe de vos rêves.",
+        "url": "https://openagenda.com/estevelles-direct/events/bourse-de-collectionneurs-sur-le-sport",
+        "stages": [],
+        "id": 46
+    },
+    {
         "title": "Exposition La Gascogne de Daniel Maigné : une sélection de photographies issue de la collection départementale au Musée du paysan gascon de Toujouse",
         "category": "rasso",
         "date": "2027-07-10",
@@ -589,7 +601,7 @@
         "description": "Exposition La Gascogne de Daniel Maigné : une sélection de photographies issue de la collection départementale",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-la-gascogne-de-daniel-maigne-une-selection-ide-photographies-issue-de-la-collection-departementale-au-musee-du-paysan-gascon-de-toujouse",
         "stages": [],
-        "id": 46
+        "id": 47
     },
     {
         "title": "S'enraciner dans le corps...La collection de Nathalie Casabo Emprin en Ardèche verte",
@@ -601,7 +613,7 @@
         "description": "Installée depuis quelques années sur les monts du Pilat, à Vanosc, où j’ai replanté mes racines, je continue de revisiter mon passé. Après l’Accroche Cœur, rétrospective de ma collection présentée au…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/laccroche-coeur",
         "stages": [],
-        "id": 47
+        "id": 48
     },
     {
         "title": "Photo Poche — Histoire d'une collection emblématique de l'édition photographique française",
@@ -612,18 +624,6 @@
         "lng": 120.105238,
         "description": "Note préalable : Ce projet fait actuellement l'objet d'une demande d'extension du périmètre de labellisation auprès du Département de la photographie du ministère de la Culture, en complément du déjà…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/photo-poche-the-history-of-an-emblematic-french-photographic-publishing-series",
-        "stages": [],
-        "id": 48
-    },
-    {
-        "title": "Bourse de collectionneurs sur le Sport",
-        "category": "rasso",
-        "date": "2026-11-29",
-        "city": "Carvin (62)",
-        "lat": 50.495073,
-        "lng": 2.950712,
-        "description": "Venez trouver le maillot vintage, l'écharpe, le fanion, la photo dédicacée ou l'écharpe de vos rêves.",
-        "url": "https://openagenda.com/estevelles-direct/events/bourse-de-collectionneurs-sur-le-sport",
         "stages": [],
         "id": 49
     },
@@ -832,6 +832,18 @@
         "id": 66
     },
     {
+        "title": "Réinventer la photographie #1, exposition collective.",
+        "category": "rasso",
+        "date": "2027-01-30",
+        "city": "Pontault-Combault (77)",
+        "lat": 48.801484,
+        "lng": 2.606385,
+        "description": "Réinventer la photographie, est une exposition collective articulant les travaux issus des 15 projets lauréats de la Commande photographique nationale confiée par le ministère de la Culture au…",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-collective-reinventer-la-photographie-1",
+        "stages": [],
+        "id": 67
+    },
+    {
         "title": "Salon Autonomic Lille Europe",
         "category": "rasso",
         "date": "2026-12-02",
@@ -841,7 +853,7 @@
         "description": "L’événement majeur dédié au Handicap et au Grand Âge en France",
         "url": "https://openagenda.com/region-hauts-de-france/events/salon-autonomic-lille-europe",
         "stages": [],
-        "id": 67
+        "id": 68
     },
     {
         "title": "42e Salon d’automne • Les Artistes Ramonvillois",
@@ -853,6 +865,6 @@
         "description": "Expo d’artistes locaux",
         "url": "https://openagenda.com/mervilla/events/42e-salon-dautomne-les-artistes-ramonvillois",
         "stages": [],
-        "id": 68
+        "id": 69
     }
 ]
