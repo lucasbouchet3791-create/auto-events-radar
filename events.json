@@ -196,18 +196,6 @@
         "id": 13
     },
     {
-        "title": "Exposition rétrospective : Regards",
-        "category": "rasso",
-        "date": "2027-01-09",
-        "city": "Chatillon-sur-loire (45)",
-        "lat": 47.590545,
-        "lng": 2.753034,
-        "description": "Du 9 janvier au 6 février 2027, l’Espace culturel de Châtillon-sur-Loire accueille une exposition rétrospective consacrée à Daniel Girard, intitulée « Regards ». Cette exposition invite les visiteu...",
-        "url": "https://openagenda.com/test-loiret-tourinsoft/events/exposition-retrospective-regards-3581876",
-        "stages": [],
-        "id": 14
-    },
-    {
         "title": "Rétrospective Rajak Ohanian",
         "category": "rasso",
         "date": "2027-03-01",
@@ -216,6 +204,18 @@
         "lng": 2.371846,
         "description": "L'exposition rétrospective de Rajak Ohanian (1933–2023) présente un vaste parcours à travers son œuvre photographique au siège du Parti communiste français, place du Colonel-Fabien à Paris.",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/retrospective-rajak-ohanian",
+        "stages": [],
+        "id": 14
+    },
+    {
+        "title": "Exposition rétrospective : Regards",
+        "category": "rasso",
+        "date": "2027-01-09",
+        "city": "Chatillon-sur-loire (45)",
+        "lat": 47.590545,
+        "lng": 2.753034,
+        "description": "Du 9 janvier au 6 février 2027, l’Espace culturel de Châtillon-sur-Loire accueille une exposition rétrospective consacrée à Daniel Girard, intitulée « Regards ». Cette exposition invite les visiteu...",
+        "url": "https://openagenda.com/test-loiret-tourinsoft/events/exposition-retrospective-regards-3581876",
         "stages": [],
         "id": 15
     },
@@ -424,18 +424,6 @@
         "id": 32
     },
     {
-        "title": "RAVEN PAUL COLLECTION",
-        "category": "rasso",
-        "date": "2026-11-26",
-        "city": "Lille (59)",
-        "lat": 50.638018,
-        "lng": 3.066605,
-        "description": "dans le cadre du Festival Culture Bar-Bars",
-        "url": "https://openagenda.com/festival-culture-bar-bars/events/raven-paul-collection",
-        "stages": [],
-        "id": 33
-    },
-    {
         "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #8 - Sammy Baloji",
         "category": "rasso",
         "date": "2027-03-22",
@@ -444,6 +432,18 @@
         "lng": 2.363348,
         "description": "#8 -- Sammy Baloji - Mesurer, négocier, et se réapproprier le projet de la modernité",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heredar-colecciones-fotograficas-postcoloniales-en-mundos-africanos-6-7754883",
+        "stages": [],
+        "id": 33
+    },
+    {
+        "title": "RAVEN PAUL COLLECTION",
+        "category": "rasso",
+        "date": "2026-11-26",
+        "city": "Lille (59)",
+        "lat": 50.638018,
+        "lng": 3.066605,
+        "description": "dans le cadre du Festival Culture Bar-Bars",
+        "url": "https://openagenda.com/festival-culture-bar-bars/events/raven-paul-collection",
         "stages": [],
         "id": 34
     },
