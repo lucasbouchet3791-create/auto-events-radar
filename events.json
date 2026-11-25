@@ -192,18 +192,6 @@
         "id": 16
     },
     {
-        "title": "Visite olfactive des collections",
-        "category": "rasso",
-        "date": "2027-05-16",
-        "city": "Roubaix (59)",
-        "lat": 50.692168,
-        "lng": 3.167645,
-        "description": "Le 3e dimanche de chaque mois de 16h15 à 17h15, le musée La Piscine propose un itinéraire olfactif à travers les œuvres de nos collections",
-        "url": "https://openagenda.com/region-hauts-de-france/events/olfactorenbezoek-van-de-collecties-6847448",
-        "stages": [],
-        "id": 17
-    },
-    {
         "title": "LA COLLECTION TINELLE",
         "category": "rasso",
         "date": "2032-01-01",
@@ -213,19 +201,19 @@
         "description": "Proposition de spectacle pour le catalogue culturel du Loiret",
         "url": "https://openagenda.com/catalogue-culturel-du-loiret/events/la-collection-tinelle-640340",
         "stages": [],
-        "id": 18
+        "id": 17
     },
     {
-        "title": "Formes radicales : expérimentation photographique à partir des collections du Ransom Center",
+        "title": "Visite olfactive des collections",
         "category": "rasso",
-        "date": "2027-02-27",
-        "city": "Austin (78)",
-        "lat": 30.284414,
-        "lng": -97.741221,
-        "description": "Cette exposition explore l’expérimentation photographique depuis les débuts du médium au XIXe siècle jusqu’à nos jours, mettant en lumière une dynamique d’inventions et de réinventions radicales…",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/radical-forms-photographic-experimentation-from-the-ransom-centers-collections",
+        "date": "2027-05-16",
+        "city": "Roubaix (59)",
+        "lat": 50.692168,
+        "lng": 3.167645,
+        "description": "Le 3e dimanche de chaque mois de 16h15 à 17h15, le musée La Piscine propose un itinéraire olfactif à travers les œuvres de nos collections",
+        "url": "https://openagenda.com/region-hauts-de-france/events/olfactorenbezoek-van-de-collecties-6847448",
         "stages": [],
-        "id": 19
+        "id": 18
     },
     {
         "title": "Présentation du livre Camera Luminaria, la collection photographique du Château d'Eau",
@@ -236,6 +224,18 @@
         "lng": 1.436919,
         "description": "Présentation du livre Camera luminaria, la collection photographique du Château d'Eau, édité par Le Bec en l'air, avec les textes de Nathalie Boulouch. Livre édité à l'occasion du Bicentenaire de la…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/presentation-du-livre-camera-luminaria-la-collection-photographique-du-chateau-deau",
+        "stages": [],
+        "id": 19
+    },
+    {
+        "title": "Formes radicales : expérimentation photographique à partir des collections du Ransom Center",
+        "category": "rasso",
+        "date": "2027-03-13",
+        "city": "Austin (78)",
+        "lat": 30.284414,
+        "lng": -97.741221,
+        "description": "Cette exposition explore l’expérimentation photographique depuis les débuts du médium au XIXe siècle jusqu’à nos jours, mettant en lumière une dynamique d’inventions et de réinventions radicales…",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/radical-forms-photographic-experimentation-from-the-ransom-centers-collections",
         "stages": [],
         "id": 20
     },
@@ -372,18 +372,6 @@
         "id": 31
     },
     {
-        "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #8 - Sammy Baloji",
-        "category": "rasso",
-        "date": "2027-03-22",
-        "city": "Saint-Denis (93)",
-        "lat": 48.945582,
-        "lng": 2.363348,
-        "description": "#8 -- Sammy Baloji - Mesurer, négocier, et se réapproprier le projet de la modernité",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heredar-colecciones-fotograficas-postcoloniales-en-mundos-africanos-6-7754883",
-        "stages": [],
-        "id": 32
-    },
-    {
         "title": "RAVEN PAUL COLLECTION",
         "category": "rasso",
         "date": "2026-11-26",
@@ -393,19 +381,19 @@
         "description": "dans le cadre du Festival Culture Bar-Bars",
         "url": "https://openagenda.com/festival-culture-bar-bars/events/raven-paul-collection",
         "stages": [],
-        "id": 33
+        "id": 32
     },
     {
-        "title": "Le sommeil dans les collections du MusBA",
+        "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #8 - Sammy Baloji",
         "category": "rasso",
-        "date": "2026-12-16",
-        "city": "Bordeaux (33)",
-        "lat": 44.837462,
-        "lng": -0.581143,
-        "description": "visite commentée autour des collections permanentes.",
-        "url": "https://openagenda.com/ville-de-bordeaux/events/visite-commentee-autour-des-collections-permanentes-1524850",
+        "date": "2027-03-22",
+        "city": "Saint-Denis (93)",
+        "lat": 48.945582,
+        "lng": 2.363348,
+        "description": "#8 -- Sammy Baloji - Mesurer, négocier, et se réapproprier le projet de la modernité",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heredar-colecciones-fotograficas-postcoloniales-en-mundos-africanos-6-7754883",
         "stages": [],
-        "id": 34
+        "id": 33
     },
     {
         "title": "Le verre, au-delà de la matière. Les collections du Cirva",
@@ -416,6 +404,18 @@
         "lng": 6.138608,
         "description": "Visite commentée de l'exposition",
         "url": "https://openagenda.com/coolturalia/events/le-verre-au-dela-de-la-matiere-les-collections-du-cirva-6723119",
+        "stages": [],
+        "id": 34
+    },
+    {
+        "title": "Le sommeil dans les collections du MusBA",
+        "category": "rasso",
+        "date": "2026-12-16",
+        "city": "Bordeaux (33)",
+        "lat": 44.837462,
+        "lng": -0.581143,
+        "description": "visite commentée autour des collections permanentes.",
+        "url": "https://openagenda.com/ville-de-bordeaux/events/visite-commentee-autour-des-collections-permanentes-1524850",
         "stages": [],
         "id": 35
     },
@@ -504,18 +504,6 @@
         "id": 42
     },
     {
-        "title": "Bourse de collectionneurs sur le Sport",
-        "category": "rasso",
-        "date": "2026-11-29",
-        "city": "Carvin (62)",
-        "lat": 50.495073,
-        "lng": 2.950712,
-        "description": "Venez trouver le maillot vintage, l'écharpe, le fanion, la photo dédicacée ou l'écharpe de vos rêves.",
-        "url": "https://openagenda.com/estevelles-direct/events/bourse-de-collectionneurs-sur-le-sport",
-        "stages": [],
-        "id": 43
-    },
-    {
         "title": "Exposition La Gascogne de Daniel Maigné : une sélection de photographies issue de la collection départementale au Musée du paysan gascon de Toujouse",
         "category": "rasso",
         "date": "2027-07-10",
@@ -525,7 +513,7 @@
         "description": "Exposition La Gascogne de Daniel Maigné : une sélection de photographies issue de la collection départementale",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-la-gascogne-de-daniel-maigne-une-selection-ide-photographies-issue-de-la-collection-departementale-au-musee-du-paysan-gascon-de-toujouse",
         "stages": [],
-        "id": 44
+        "id": 43
     },
     {
         "title": "S'enraciner dans le corps...La collection de Nathalie Casabo Emprin en Ardèche verte",
@@ -537,7 +525,7 @@
         "description": "Installée depuis quelques années sur les monts du Pilat, à Vanosc, où j’ai replanté mes racines, je continue de revisiter mon passé. Après l’Accroche Cœur, rétrospective de ma collection présentée au…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/laccroche-coeur",
         "stages": [],
-        "id": 45
+        "id": 44
     },
     {
         "title": "Photo Poche — Histoire d'une collection emblématique de l'édition photographique française",
@@ -548,6 +536,18 @@
         "lng": 120.105238,
         "description": "Note préalable : Ce projet fait actuellement l'objet d'une demande d'extension du périmètre de labellisation auprès du Département de la photographie du ministère de la Culture, en complément du déjà…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/photo-poche-the-history-of-an-emblematic-french-photographic-publishing-series",
+        "stages": [],
+        "id": 45
+    },
+    {
+        "title": "Bourse de collectionneurs sur le Sport",
+        "category": "rasso",
+        "date": "2026-11-29",
+        "city": "Carvin (62)",
+        "lat": 50.495073,
+        "lng": 2.950712,
+        "description": "Venez trouver le maillot vintage, l'écharpe, le fanion, la photo dédicacée ou l'écharpe de vos rêves.",
+        "url": "https://openagenda.com/estevelles-direct/events/bourse-de-collectionneurs-sur-le-sport",
         "stages": [],
         "id": 46
     },
@@ -778,17 +778,5 @@
         "url": "https://openagenda.com/region-hauts-de-france/events/salon-autonomic-lille-europe",
         "stages": [],
         "id": 65
-    },
-    {
-        "title": "42e Salon d’automne • Les Artistes Ramonvillois",
-        "category": "rasso",
-        "date": "2026-11-24",
-        "city": "Ramonville-Saint-Agne (31)",
-        "lat": 43.549121,
-        "lng": 1.477318,
-        "description": "Expo d’artistes locaux",
-        "url": "https://openagenda.com/haute-garonne-le-departement/events/42e-salon-dautomne-les-artistes-ramonvillois",
-        "stages": [],
-        "id": 66
     }
 ]
