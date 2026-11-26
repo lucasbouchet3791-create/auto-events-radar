@@ -192,18 +192,6 @@
         "id": 16
     },
     {
-        "title": "LA COLLECTION TINELLE",
-        "category": "rasso",
-        "date": "2032-01-01",
-        "city": null,
-        "lat": 47.913872,
-        "lng": 2.307504,
-        "description": "Proposition de spectacle pour le catalogue culturel du Loiret",
-        "url": "https://openagenda.com/catalogue-culturel-du-loiret/events/la-collection-tinelle-640340",
-        "stages": [],
-        "id": 17
-    },
-    {
         "title": "Visite olfactive des collections",
         "category": "rasso",
         "date": "2027-05-16",
@@ -213,19 +201,19 @@
         "description": "Le 3e dimanche de chaque mois de 16h15 à 17h15, le musée La Piscine propose un itinéraire olfactif à travers les œuvres de nos collections",
         "url": "https://openagenda.com/region-hauts-de-france/events/olfactorenbezoek-van-de-collecties-6847448",
         "stages": [],
-        "id": 18
+        "id": 17
     },
     {
-        "title": "Présentation du livre Camera Luminaria, la collection photographique du Château d'Eau",
+        "title": "LA COLLECTION TINELLE",
         "category": "rasso",
-        "date": "2027-01-09",
-        "city": "Toulouse (31)",
-        "lat": 43.598702,
-        "lng": 1.436919,
-        "description": "Présentation du livre Camera luminaria, la collection photographique du Château d'Eau, édité par Le Bec en l'air, avec les textes de Nathalie Boulouch. Livre édité à l'occasion du Bicentenaire de la…",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/presentation-du-livre-camera-luminaria-la-collection-photographique-du-chateau-deau",
+        "date": "2032-01-01",
+        "city": null,
+        "lat": 47.913872,
+        "lng": 2.307504,
+        "description": "Proposition de spectacle pour le catalogue culturel du Loiret",
+        "url": "https://openagenda.com/catalogue-culturel-du-loiret/events/la-collection-tinelle-640340",
         "stages": [],
-        "id": 19
+        "id": 18
     },
     {
         "title": "Formes radicales : expérimentation photographique à partir des collections du Ransom Center",
@@ -236,6 +224,18 @@
         "lng": -97.741221,
         "description": "Cette exposition explore l’expérimentation photographique depuis les débuts du médium au XIXe siècle jusqu’à nos jours, mettant en lumière une dynamique d’inventions et de réinventions radicales…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/radical-forms-photographic-experimentation-from-the-ransom-centers-collections",
+        "stages": [],
+        "id": 19
+    },
+    {
+        "title": "Présentation du livre Camera Luminaria, la collection photographique du Château d'Eau",
+        "category": "rasso",
+        "date": "2027-01-09",
+        "city": "Toulouse (31)",
+        "lat": 43.598702,
+        "lng": 1.436919,
+        "description": "Présentation du livre Camera luminaria, la collection photographique du Château d'Eau, édité par Le Bec en l'air, avec les textes de Nathalie Boulouch. Livre édité à l'occasion du Bicentenaire de la…",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/presentation-du-livre-camera-luminaria-la-collection-photographique-du-chateau-deau",
         "stages": [],
         "id": 20
     },
@@ -354,7 +354,7 @@
         "city": "Genève (12)",
         "lat": 46.199554,
         "lng": 6.145267,
-        "description": "Dans le cadre des cafés interactifs Memoriav & Programme Off — Rendez-vous en lien avec le Bicentenaire de la Photographie",
+        "description": "Dans le cadre des cafés interactifs Memoriav & Programme Off du Bicentenaire de la Photographie",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/entre-precision-et-pragmatisme-letude-sanitaire-dune-collection-de-negatifs-souples-dans-le-cadre-des-cafes-interactifs-memoriav",
         "stages": [],
         "id": 30
@@ -372,18 +372,6 @@
         "id": 31
     },
     {
-        "title": "RAVEN PAUL COLLECTION",
-        "category": "rasso",
-        "date": "2026-11-26",
-        "city": "Lille (59)",
-        "lat": 50.638018,
-        "lng": 3.066605,
-        "description": "dans le cadre du Festival Culture Bar-Bars",
-        "url": "https://openagenda.com/festival-culture-bar-bars/events/raven-paul-collection",
-        "stages": [],
-        "id": 32
-    },
-    {
         "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #8 - Sammy Baloji",
         "category": "rasso",
         "date": "2027-03-22",
@@ -393,19 +381,19 @@
         "description": "#8 -- Sammy Baloji - Mesurer, négocier, et se réapproprier le projet de la modernité",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heredar-colecciones-fotograficas-postcoloniales-en-mundos-africanos-6-7754883",
         "stages": [],
-        "id": 33
+        "id": 32
     },
     {
-        "title": "Le verre, au-delà de la matière. Les collections du Cirva",
+        "title": "RAVEN PAUL COLLECTION",
         "category": "rasso",
-        "date": "2026-12-06",
-        "city": "Genève",
-        "lat": 46.225478,
-        "lng": 6.138608,
-        "description": "Visite commentée de l'exposition",
-        "url": "https://openagenda.com/coolturalia/events/le-verre-au-dela-de-la-matiere-les-collections-du-cirva-6723119",
+        "date": "2026-11-26",
+        "city": "Lille (59)",
+        "lat": 50.638018,
+        "lng": 3.066605,
+        "description": "dans le cadre du Festival Culture Bar-Bars",
+        "url": "https://openagenda.com/festival-culture-bar-bars/events/raven-paul-collection",
         "stages": [],
-        "id": 34
+        "id": 33
     },
     {
         "title": "Le sommeil dans les collections du MusBA",
@@ -416,6 +404,18 @@
         "lng": -0.581143,
         "description": "visite commentée autour des collections permanentes.",
         "url": "https://openagenda.com/ville-de-bordeaux/events/visite-commentee-autour-des-collections-permanentes-1524850",
+        "stages": [],
+        "id": 34
+    },
+    {
+        "title": "Le verre, au-delà de la matière. Les collections du Cirva",
+        "category": "rasso",
+        "date": "2026-12-06",
+        "city": "Genève",
+        "lat": 46.225478,
+        "lng": 6.138608,
+        "description": "Visite commentée de l'exposition",
+        "url": "https://openagenda.com/coolturalia/events/le-verre-au-dela-de-la-matiere-les-collections-du-cirva-6723119",
         "stages": [],
         "id": 35
     },
@@ -468,18 +468,6 @@
         "id": 39
     },
     {
-        "title": "Musée numérique : nouvelle collection",
-        "category": "rasso",
-        "date": "2026-11-28",
-        "city": "Le Pouliguen (44)",
-        "lat": 47.27546,
-        "lng": -2.43043,
-        "description": "Venez découvrir la nouvelle collection du musée numérique sur le thème de la biodiversité.",
-        "url": "https://openagenda.com/le-pouliguen/events/musee-numerique-nouvelle-collection",
-        "stages": [],
-        "id": 40
-    },
-    {
         "title": "La photographie au musée d’Orsay : un parcours inédit dans les collections",
         "category": "rasso",
         "date": "2027-09-14",
@@ -488,6 +476,18 @@
         "lng": 2.325546,
         "description": "La photographie au musée d’Orsay : un parcours inédit dans les collections",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-3852045",
+        "stages": [],
+        "id": 40
+    },
+    {
+        "title": "Musée numérique : nouvelle collection",
+        "category": "rasso",
+        "date": "2026-11-28",
+        "city": "Le Pouliguen (44)",
+        "lat": 47.27546,
+        "lng": -2.43043,
+        "description": "Venez découvrir la nouvelle collection du musée numérique sur le thème de la biodiversité.",
+        "url": "https://openagenda.com/le-pouliguen/events/musee-numerique-nouvelle-collection",
         "stages": [],
         "id": 41
     },
