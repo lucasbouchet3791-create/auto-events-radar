@@ -72,14 +72,14 @@
         "id": 6
     },
     {
-        "title": "Rallye des Prestations : Rencontrez les Acteurs de Votre Succès Professionnel en une matinée !",
+        "title": "Comité animation Rallye Transfert - JT Rallye 64 et 79",
         "category": "rallye",
-        "date": "2026-11-26",
-        "city": "Perpignan (66)",
-        "lat": 42.690102,
-        "lng": 2.871498,
-        "description": "Vous êtes à la recherche d'une solution stable et souhaitez maximiser vos chances de succès ? Venez au Rallye des Prestations, un événement spécialement conçu pour vous !",
-        "url": "https://openagenda.com/francetravail/events/rallye-des-prestations-rencontrez-les-acteurs-de-votre-succes-professionnel-en-une-matinee-6144894",
+        "date": "2026-12-08",
+        "city": "Castétis (64)",
+        "lat": 43.482629,
+        "lng": -0.722125,
+        "description": "Comment les plantes de service peuvent contribuer à la gestion des abords de serres et des cultures maraîchères, notamment grâce à l'utilisation de couverts végétaux adaptés.",
+        "url": "https://openagenda.com/evenements-agro-ecologie-nouvelle-aquitaine/events/comite-animation-rallye-transfert-jt-rallye-64-et-79",
         "stages": [],
         "id": 7
     },
@@ -192,18 +192,6 @@
         "id": 16
     },
     {
-        "title": "Visite olfactive des collections",
-        "category": "rasso",
-        "date": "2027-05-16",
-        "city": "Roubaix (59)",
-        "lat": 50.692168,
-        "lng": 3.167645,
-        "description": "Le 3e dimanche de chaque mois de 16h15 à 17h15, le musée La Piscine propose un itinéraire olfactif à travers les œuvres de nos collections",
-        "url": "https://openagenda.com/region-hauts-de-france/events/olfactorenbezoek-van-de-collecties-6847448",
-        "stages": [],
-        "id": 17
-    },
-    {
         "title": "LA COLLECTION TINELLE",
         "category": "rasso",
         "date": "2032-01-01",
@@ -212,6 +200,18 @@
         "lng": 2.307504,
         "description": "Proposition de spectacle pour le catalogue culturel du Loiret",
         "url": "https://openagenda.com/catalogue-culturel-du-loiret/events/la-collection-tinelle-640340",
+        "stages": [],
+        "id": 17
+    },
+    {
+        "title": "Visite olfactive des collections",
+        "category": "rasso",
+        "date": "2027-05-16",
+        "city": "Roubaix (59)",
+        "lat": 50.692168,
+        "lng": 3.167645,
+        "description": "Le 3e dimanche de chaque mois de 16h15 à 17h15, le musée La Piscine propose un itinéraire olfactif à travers les œuvres de nos collections",
+        "url": "https://openagenda.com/region-hauts-de-france/events/olfactorenbezoek-van-de-collecties-6847448",
         "stages": [],
         "id": 18
     },
@@ -240,18 +240,6 @@
         "id": 20
     },
     {
-        "title": "Conversation autour de l'art : Les collections gothiques",
-        "category": "rasso",
-        "date": "2026-11-26",
-        "city": "Toulouse (31)",
-        "lat": 43.600942,
-        "lng": 1.446343,
-        "description": "Une rencontre pour évoquer les exceptionnelles collections gothiques",
-        "url": "https://openagenda.com/musee-des-augustins-toulouse/events/conversation-autour-de-lart-les-collections-gothiques",
-        "stages": [],
-        "id": 21
-    },
-    {
         "title": "Quel chantier ! Les collections photographiques du musée de Carnac en pleine effervescence.",
         "category": "rasso",
         "date": "2027-07-05",
@@ -261,7 +249,7 @@
         "description": "Visites courtes et interactives au cours de la journée (horaires variables) par un médiateur. Anecdotes, manipulations et infos-clés pour sensibiliser les publics à la conservation des collections et…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/quel-chantier-les-collections-photographiques-du-musee-de-carnac-en-pleine-effervescence",
         "stages": [],
-        "id": 22
+        "id": 21
     },
     {
         "title": "Le portrait à travers les collections de la Médiathèque du Patrimoine et de la Photographie",
@@ -273,7 +261,7 @@
         "description": "Une bande de bikers de banlieue, Victor Hugo, David Lynch, Joséphine Baker et quelques matelots de la Royale se côtoient sur les murs de la maison de la Culture à Amiens. Se faire tirer le portrait À…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/le-portrait-a-travers-les-collections-de-la-mediatheque-du-patrimoine-et-de-la-photographie",
         "stages": [],
-        "id": 23
+        "id": 22
     },
     {
         "title": "Visite guidée des collections",
@@ -285,7 +273,7 @@
         "description": "La Piscine propose, chaque dimanche de 16h15 à 17h15, une visite guidée de ses collections permanentes.",
         "url": "https://openagenda.com/region-hauts-de-france/events/rondleiding-door-de-collecties-6768909",
         "stages": [],
-        "id": 24
+        "id": 23
     },
     {
         "title": "Voyage à travers les collections photographiques du Musée Louis-Philippe",
@@ -297,7 +285,7 @@
         "description": "Le Musée Louis-Philippe propose une exposition temporaire autour d’un fonds encore méconnu de ses collections : la photographie.",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/voyage-a-travers-les-collections-photographiques-du-musee-louis-philippe",
         "stages": [],
-        "id": 25
+        "id": 24
     },
     {
         "title": "L’affiche d’exposition à Genève: la collection du MAH",
@@ -309,7 +297,7 @@
         "description": "Quand l’affiche devient la vitrine de la vie artistique genevoise",
         "url": "https://openagenda.com/coolturalia/events/laffiche-dexposition-a-geneve-la-collection-du-mah",
         "stages": [],
-        "id": 26
+        "id": 25
     },
     {
         "title": "Lancement Collection Fléchette 5 ANS",
@@ -321,7 +309,7 @@
         "description": "Fléchette est une collection de livres où dialoguent les images des Archives de la Planète (1909-1931) – vaste projet documentaire qui constituent à ce jour le socle des collections du musée – avec à…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/lancement-collection-flechette-5-ans",
         "stages": [],
-        "id": 27
+        "id": 26
     },
     {
         "title": "S'enraciner dans la Nature de l'Etre, la collection de Nathalie Casabo Emprin en Ardèche verte",
@@ -333,7 +321,7 @@
         "description": "S’enraciner dans la Nature de l’Etre",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/senracinerla-collection-de-nathalie-casabo-emprin-en-ardeche-verte-4962514",
         "stages": [],
-        "id": 28
+        "id": 27
     },
     {
         "title": "Empreintes de regards – Portraits d’artistes de la collection photographique de László Vass",
@@ -345,7 +333,7 @@
         "description": "La collection privée de László Vass, l’une des références majeures des courants hongrois et internationaux géométriques, constructivistes et non figuratifs, est largement reconnue. En revanche, le…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/empreintes-de-regards-portraits-dartistes-de-la-collection-photographique-de-laszlo-vass",
         "stages": [],
-        "id": 29
+        "id": 28
     },
     {
         "title": "Entre précision et pragmatisme: l’étude sanitaire d’une collection de négatifs souples.",
@@ -357,7 +345,7 @@
         "description": "Dans le cadre des cafés interactifs Memoriav & Programme Off du Bicentenaire de la Photographie",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/entre-precision-et-pragmatisme-letude-sanitaire-dune-collection-de-negatifs-souples-dans-le-cadre-des-cafes-interactifs-memoriav",
         "stages": [],
-        "id": 30
+        "id": 29
     },
     {
         "title": "Visite guidée des collections du musée",
@@ -369,7 +357,7 @@
         "description": "Tous publics – Visite comprise dans le droit d’entrée du musée.",
         "url": "https://openagenda.com/test-loiret-tourinsoft/events/visite-guidee-des-collections-du-musee-9294195",
         "stages": [],
-        "id": 31
+        "id": 30
     },
     {
         "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #8 - Sammy Baloji",
@@ -381,31 +369,7 @@
         "description": "#8 -- Sammy Baloji - Mesurer, négocier, et se réapproprier le projet de la modernité",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heredar-colecciones-fotograficas-postcoloniales-en-mundos-africanos-6-7754883",
         "stages": [],
-        "id": 32
-    },
-    {
-        "title": "RAVEN PAUL COLLECTION",
-        "category": "rasso",
-        "date": "2026-11-26",
-        "city": "Lille (59)",
-        "lat": 50.638018,
-        "lng": 3.066605,
-        "description": "dans le cadre du Festival Culture Bar-Bars",
-        "url": "https://openagenda.com/festival-culture-bar-bars/events/raven-paul-collection",
-        "stages": [],
-        "id": 33
-    },
-    {
-        "title": "Le sommeil dans les collections du MusBA",
-        "category": "rasso",
-        "date": "2026-12-16",
-        "city": "Bordeaux (33)",
-        "lat": 44.837462,
-        "lng": -0.581143,
-        "description": "visite commentée autour des collections permanentes.",
-        "url": "https://openagenda.com/ville-de-bordeaux/events/visite-commentee-autour-des-collections-permanentes-1524850",
-        "stages": [],
-        "id": 34
+        "id": 31
     },
     {
         "title": "Le verre, au-delà de la matière. Les collections du Cirva",
@@ -417,7 +381,19 @@
         "description": "Visite commentée de l'exposition",
         "url": "https://openagenda.com/coolturalia/events/le-verre-au-dela-de-la-matiere-les-collections-du-cirva-6723119",
         "stages": [],
-        "id": 35
+        "id": 32
+    },
+    {
+        "title": "Le sommeil dans les collections du MusBA",
+        "category": "rasso",
+        "date": "2026-12-16",
+        "city": "Bordeaux (33)",
+        "lat": 44.837462,
+        "lng": -0.581143,
+        "description": "visite commentée autour des collections permanentes.",
+        "url": "https://openagenda.com/ville-de-bordeaux/events/visite-commentee-autour-des-collections-permanentes-1524850",
+        "stages": [],
+        "id": 33
     },
     {
         "title": "Collection et vie de Françis Chevalier, cheminot de Morat",
@@ -429,7 +405,7 @@
         "description": "Cette exposition est consacrée à la vie et à l’œuvre de Francis Chevalier (1937–2021), ancien chef de gare et formateur d’apprentis aux CFF (SBB/FFS) et membre fondateur de l’ESMC. Passionné de…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/sammlung-und-leben-von-francis-chevalier-eisenbahner-aus-murten",
         "stages": [],
-        "id": 36
+        "id": 34
     },
     {
         "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #7 - Damarice Amao",
@@ -441,7 +417,7 @@
         "description": "#7 -- Damarice Amao - \\[titre à venir\\]",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heredar-colecciones-fotograficas-postcoloniales-en-mundos-africanos-6",
         "stages": [],
-        "id": 37
+        "id": 35
     },
     {
         "title": "L’histoire de la photographie à Genève, à travers les collections de la Bibliothèque de Genève",
@@ -453,7 +429,7 @@
         "description": "Programme Off — Rendez-vous en lien avec le Bicentenaire de la Photographie",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/lhistoire-de-la-photographie-a-geneve-a-travers-les-collections-de-la-bibliotheque-de-geneve-3987484",
         "stages": [],
-        "id": 38
+        "id": 36
     },
     {
         "title": "La Collection · Aude Denis, Cie Par dessus bord",
@@ -465,19 +441,7 @@
         "description": "Qu’est-ce qu’on a vraiment besoin de raconter ? Qu’est-ce qui vaut la peine d’être écrit, joué, transmis ? Avec ce spectacle, Aude Denis explore la question des héritages et de la mémoire.",
         "url": "https://openagenda.com/le-vivat/events/la-collection-aude-denis-cie-par-dessus-bord",
         "stages": [],
-        "id": 39
-    },
-    {
-        "title": "La photographie au musée d’Orsay : un parcours inédit dans les collections",
-        "category": "rasso",
-        "date": "2027-09-14",
-        "city": "Paris (75)",
-        "lat": 48.860372,
-        "lng": 2.325546,
-        "description": "La photographie au musée d’Orsay : un parcours inédit dans les collections",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-3852045",
-        "stages": [],
-        "id": 40
+        "id": 37
     },
     {
         "title": "Musée numérique : nouvelle collection",
@@ -489,7 +453,19 @@
         "description": "Venez découvrir la nouvelle collection du musée numérique sur le thème de la biodiversité.",
         "url": "https://openagenda.com/le-pouliguen/events/musee-numerique-nouvelle-collection",
         "stages": [],
-        "id": 41
+        "id": 38
+    },
+    {
+        "title": "La photographie au musée d’Orsay : un parcours inédit dans les collections",
+        "category": "rasso",
+        "date": "2027-09-14",
+        "city": "Paris (75)",
+        "lat": 48.860372,
+        "lng": 2.325546,
+        "description": "La photographie au musée d’Orsay : un parcours inédit dans les collections",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-3852045",
+        "stages": [],
+        "id": 39
     },
     {
         "title": "Les collections photographiques françaises: histoires en devenir",
@@ -501,43 +477,7 @@
         "description": "Les Collections photographiques françaises: histoires en devenir",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/colloque-sur-les-collections-photographiques-francaises",
         "stages": [],
-        "id": 42
-    },
-    {
-        "title": "Exposition La Gascogne de Daniel Maigné : une sélection de photographies issue de la collection départementale au Musée du paysan gascon de Toujouse",
-        "category": "rasso",
-        "date": "2027-07-10",
-        "city": "Toujouse (32)",
-        "lat": 43.831208,
-        "lng": -0.160243,
-        "description": "Exposition La Gascogne de Daniel Maigné : une sélection de photographies issue de la collection départementale",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-la-gascogne-de-daniel-maigne-une-selection-ide-photographies-issue-de-la-collection-departementale-au-musee-du-paysan-gascon-de-toujouse",
-        "stages": [],
-        "id": 43
-    },
-    {
-        "title": "S'enraciner dans le corps...La collection de Nathalie Casabo Emprin en Ardèche verte",
-        "category": "rasso",
-        "date": "2027-05-15",
-        "city": "Vanosc (07)",
-        "lat": 45.22975,
-        "lng": 4.535894,
-        "description": "Installée depuis quelques années sur les monts du Pilat, à Vanosc, où j’ai replanté mes racines, je continue de revisiter mon passé. Après l’Accroche Cœur, rétrospective de ma collection présentée au…",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/laccroche-coeur",
-        "stages": [],
-        "id": 44
-    },
-    {
-        "title": "Photo Poche — Histoire d'une collection emblématique de l'édition photographique française",
-        "category": "rasso",
-        "date": "2026-12-01",
-        "city": "Xihu District (31)",
-        "lat": 30.26796,
-        "lng": 120.105238,
-        "description": "Note préalable : Ce projet fait actuellement l'objet d'une demande d'extension du périmètre de labellisation auprès du Département de la photographie du ministère de la Culture, en complément du déjà…",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/photo-poche-the-history-of-an-emblematic-french-photographic-publishing-series",
-        "stages": [],
-        "id": 45
+        "id": 40
     },
     {
         "title": "Bourse de collectionneurs sur le Sport",
@@ -549,7 +489,43 @@
         "description": "Venez trouver le maillot vintage, l'écharpe, le fanion, la photo dédicacée ou l'écharpe de vos rêves.",
         "url": "https://openagenda.com/estevelles-direct/events/bourse-de-collectionneurs-sur-le-sport",
         "stages": [],
-        "id": 46
+        "id": 41
+    },
+    {
+        "title": "Exposition La Gascogne de Daniel Maigné : une sélection de photographies issue de la collection départementale au Musée du paysan gascon de Toujouse",
+        "category": "rasso",
+        "date": "2027-07-10",
+        "city": "Toujouse (32)",
+        "lat": 43.831208,
+        "lng": -0.160243,
+        "description": "Exposition La Gascogne de Daniel Maigné : une sélection de photographies issue de la collection départementale",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-la-gascogne-de-daniel-maigne-une-selection-ide-photographies-issue-de-la-collection-departementale-au-musee-du-paysan-gascon-de-toujouse",
+        "stages": [],
+        "id": 42
+    },
+    {
+        "title": "S'enraciner dans le corps...La collection de Nathalie Casabo Emprin en Ardèche verte",
+        "category": "rasso",
+        "date": "2027-05-15",
+        "city": "Vanosc (07)",
+        "lat": 45.22975,
+        "lng": 4.535894,
+        "description": "Installée depuis quelques années sur les monts du Pilat, à Vanosc, où j’ai replanté mes racines, je continue de revisiter mon passé. Après l’Accroche Cœur, rétrospective de ma collection présentée au…",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/laccroche-coeur",
+        "stages": [],
+        "id": 43
+    },
+    {
+        "title": "Photo Poche — Histoire d'une collection emblématique de l'édition photographique française",
+        "category": "rasso",
+        "date": "2026-12-01",
+        "city": "Xihu District (31)",
+        "lat": 30.26796,
+        "lng": 120.105238,
+        "description": "Note préalable : Ce projet fait actuellement l'objet d'une demande d'extension du périmètre de labellisation auprès du Département de la photographie du ministère de la Culture, en complément du déjà…",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/photo-poche-the-history-of-an-emblematic-french-photographic-publishing-series",
+        "stages": [],
+        "id": 44
     },
     {
         "title": "S'enraciner dans nos origines, la collection de Nathalie Casabo Emprin en Ardèche verte",
@@ -561,7 +537,7 @@
         "description": "S’enraciner…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/senracinerla-collection-de-nathalie-casabo-emprin-en-ardeche-verte",
         "stages": [],
-        "id": 47
+        "id": 45
     },
     {
         "title": "Lancement de la mise en ligne des collections",
@@ -573,7 +549,7 @@
         "description": "Le CRP/ Centre régional de la photographie Hauts-de-France célèbre le lancement de la mise en ligne de ses collections lors du vernissage de l'exposition « Donner à voir. 10.000 photographies dans du…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/lancement-de-la-mise-en-ligne-des-collections",
         "stages": [],
-        "id": 48
+        "id": 46
     },
     {
         "title": "S’enraciner dans la vie - Sida et prévention \n(S’enraciner :  La collection de Nathalie Casabo-Emprin en Ardèche verte)",
@@ -585,7 +561,7 @@
         "description": "S’enraciner dans la vie",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-senraciner-dans-la-vie-sida-et-prevention-senraciner-la-collection-de-nathalie-casabo-emprin-en-ardeche-verte",
         "stages": [],
-        "id": 49
+        "id": 47
     },
     {
         "title": "Donner à voir. 10 000 photographies dans les collections du CRP/",
@@ -597,7 +573,7 @@
         "description": "Le CRP/ Centre régional de la photographie Hauts-de-France célèbre la photographie en ouvrant grand ses collections ! Avec la mise en ligne de l’intégralité de ses fonds le…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/donner-a-voir-10-000-photographies-dans-les-collections-du-crp",
         "stages": [],
-        "id": 50
+        "id": 48
     },
     {
         "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #6 - Camille Kaiser",
@@ -609,7 +585,7 @@
         "description": "Cycle de conférences proposé par Christine Barthe (musée du quai Branly – Jacques Chirac), Inès Boufouchk (ECPAD), Annabelle Lacour (musée du quai Branly – Jacques Chirac), Marian Nur Goni Paris 8), …",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heriter-collections-photographiques-postcoloniales-en-mondes-africains-6",
         "stages": [],
-        "id": 51
+        "id": 49
     },
     {
         "title": "Présentation d'une collection d'appareils photo du 19 et 20e siècle fabriquée en France.",
@@ -621,7 +597,7 @@
         "description": "Arnaud saudax, est un collectionneur d'appareils photo qui a consacré sa vie à collecter les marques françaises. Pour le bicentenaire, il exposera environ une centaine de pièces, dont certaines très…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/presentation-dune-collection-dappareils-photo-du-19-et-20e-siecle-fabriquee-en-france",
         "stages": [],
-        "id": 52
+        "id": 50
     },
     {
         "title": "S'enraciner dans l'Etre Nature, la collection de Nathalie Casabo Emprin en Ardèche verte",
@@ -632,6 +608,30 @@
         "lng": 4.669727,
         "description": "S’enraciner dans l’Etre Nature",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/senracinerla-collection-de-nathalie-casabo-emprin-en-ardeche-verte-8921409",
+        "stages": [],
+        "id": 51
+    },
+    {
+        "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #3 - Bronwyn Lace & Neo Muyanga",
+        "category": "rasso",
+        "date": "2026-11-30",
+        "city": "Saint-Denis (93)",
+        "lat": 48.945582,
+        "lng": 2.363348,
+        "description": "Cycle de conférences proposé par Christine Barthe (musée du quai Branly – Jacques Chirac), Inès Boufouchk (ECPAD), Annabelle Lacour (musée du quai Branly – Jacques Chirac), Marian Nur Goni Paris 8), …",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heriter-collections-photographiques-postcoloniales-en-mondes-africains-3",
+        "stages": [],
+        "id": 52
+    },
+    {
+        "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #5 - Margaux Lavernhe",
+        "category": "rasso",
+        "date": "2027-01-25",
+        "city": "Saint-Denis (93)",
+        "lat": 48.945582,
+        "lng": 2.363348,
+        "description": "Cycle de conférences proposé par Christine Barthe (musée du quai Branly – Jacques Chirac), Inès Boufouchk (ECPAD), Annabelle Lacour (musée du quai Branly – Jacques Chirac), Marian Nur Goni Paris 8), …",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heriter-collections-photographiques-postcoloniales-en-mondes-africains-5",
         "stages": [],
         "id": 53
     },
@@ -648,30 +648,6 @@
         "id": 54
     },
     {
-        "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #3 - Bronwyn Lace & Neo Muyanga",
-        "category": "rasso",
-        "date": "2026-11-30",
-        "city": "Saint-Denis (93)",
-        "lat": 48.945582,
-        "lng": 2.363348,
-        "description": "Cycle de conférences proposé par Christine Barthe (musée du quai Branly – Jacques Chirac), Inès Boufouchk (ECPAD), Annabelle Lacour (musée du quai Branly – Jacques Chirac), Marian Nur Goni Paris 8), …",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heriter-collections-photographiques-postcoloniales-en-mondes-africains-3",
-        "stages": [],
-        "id": 55
-    },
-    {
-        "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #5 - Margaux Lavernhe",
-        "category": "rasso",
-        "date": "2027-01-25",
-        "city": "Saint-Denis (93)",
-        "lat": 48.945582,
-        "lng": 2.363348,
-        "description": "Cycle de conférences proposé par Christine Barthe (musée du quai Branly – Jacques Chirac), Inès Boufouchk (ECPAD), Annabelle Lacour (musée du quai Branly – Jacques Chirac), Marian Nur Goni Paris 8), …",
-        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heriter-collections-photographiques-postcoloniales-en-mondes-africains-5",
-        "stages": [],
-        "id": 56
-    },
-    {
         "title": "RENCONTRE AVEC GABRIELLA CENDOYA BERGARECHE - Collectionneuse de Livre-Photos",
         "category": "rasso",
         "date": "2026-12-05",
@@ -681,7 +657,7 @@
         "description": "SALON DU LIVRE-PHOTO ASCAIN",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/rencontre-avec-gabriella-cendoya-bergareche-collectionneuse-de-livre-photo",
         "stages": [],
-        "id": 57
+        "id": 55
     },
     {
         "title": "Musée Réattu, une collection photographique pionnière",
@@ -693,7 +669,7 @@
         "description": "Le directeur du Musée Réattu, Daniel Rouvier, présente l’histoire et l’esprit de la collection du musée à Arles. Dès 1965, le Musée Réattu se distingue en devenant le premier musée de France à…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/comment-arles-est-devenue-la-capitale-de-la-photographie",
         "stages": [],
-        "id": 58
+        "id": 56
     },
     {
         "title": "S'enraciner dans la terre, l'humain, la matière, la collection de Nathalie Casabo Emprin en Ardèche verte",
@@ -705,7 +681,7 @@
         "description": "Rencontre avec Nathalie Casabo Emprin au sujet de sa collection",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/senraciner-la-collection-de-nathalie-casabo-emprin-en-ardeche-verte",
         "stages": [],
-        "id": 59
+        "id": 57
     },
     {
         "title": "Sêma. De l’image au récit méditerranéen - Un regard sur la collection photographique de la Fondation des Treilles.",
@@ -717,7 +693,7 @@
         "description": "Sêma. De l’image au récit méditerranéen",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/sema-de-limage-au-recit-mediterraneen-un-regard-sur-la-collection-photographique-de-la-fondation-des-treilles",
         "stages": [],
-        "id": 60
+        "id": 58
     },
     {
         "title": "Hériter ? Collections photographiques (post)coloniales en mondes africains. #4 - Amandine Nana",
@@ -729,19 +705,7 @@
         "description": "Cycle de conférences proposé par Christine Barthe (musée du quai Branly – Jacques Chirac), Inès Boufouchk (ECPAD), Annabelle Lacour (musée du quai Branly – Jacques Chirac), Marian Nur Goni Paris 8), …",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/heriter-collections-photographiques-postcoloniales-en-mondes-africains-4",
         "stages": [],
-        "id": 61
-    },
-    {
-        "title": "Cyberviolences – résister collectivement à la silenciation",
-        "category": "rasso",
-        "date": "2026-11-26",
-        "city": "Genève (12)",
-        "lat": 46.201007,
-        "lng": 6.138586,
-        "description": "Discussion avec Pauline Ferrari, Ela Bulen Öztürk et La Carologie, pour explorer comment les cyberviolences sont un outil de silenciation et d’exclusion des personnes sexisées de l’espace public.",
-        "url": "https://openagenda.com/coolturalia/events/cyberviolences-resister-collectivement-a-la-silenciation",
-        "stages": [],
-        "id": 62
+        "id": 59
     },
     {
         "title": "Visite commentée du dimanche de l'exposition collective Réinventer la photographie #2",
@@ -753,7 +717,7 @@
         "description": "Visite commentée gratuite de l'exposition collective Réinventer la photographie #2",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/visite-commentee-du-dimanche-de-lexposition-collective-reinventer-la-photographie-2",
         "stages": [],
-        "id": 63
+        "id": 60
     },
     {
         "title": "Réinventer la photographie #1, exposition collective.",
@@ -765,7 +729,19 @@
         "description": "Réinventer la photographie, est une exposition collective articulant les travaux issus des 15 projets lauréats de la Commande photographique nationale confiée par le ministère de la Culture au…",
         "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-collective-reinventer-la-photographie-1",
         "stages": [],
-        "id": 64
+        "id": 61
+    },
+    {
+        "title": "Visite commentée du dimanche de l'exposition collective Réinventer la photographie #1",
+        "category": "rasso",
+        "date": "2027-01-31",
+        "city": "Pontault-Combault (77)",
+        "lat": 48.801484,
+        "lng": 2.606385,
+        "description": "Visite commentée gratuite de l'exposition collective Réinventer la photographie #1",
+        "url": "https://openagenda.com/bicentenaire-photographie-fr/events/visite-commentee-du-dimanche-de-lexposition-collective-reinventer-la-photographie-1",
+        "stages": [],
+        "id": 62
     },
     {
         "title": "Salon Autonomic Lille Europe",
@@ -777,6 +753,6 @@
         "description": "L’événement majeur dédié au Handicap et au Grand Âge en France",
         "url": "https://openagenda.com/region-hauts-de-france/events/salon-autonomic-lille-europe",
         "stages": [],
-        "id": 65
+        "id": 63
     }
 ]
